@@ -14,6 +14,7 @@ public class UserDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
 
     //登录方法
+    //查询系统管理员
     public User salogin(User loginUser) {
         try {
 
@@ -27,6 +28,8 @@ public class UserDao {
             return null;
         }
     }
+
+    //查询食堂管理员
     public User cmlogin(User loginUser) {
         try {
 
@@ -40,6 +43,8 @@ public class UserDao {
             return null;
         }
     }
+
+    //查询师生
     public User tslogin(User loginUser) {
         try {
 

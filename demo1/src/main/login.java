@@ -1,4 +1,4 @@
-package main.hom.login;
+package main;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "main/hom/login", urlPatterns = {"/main/hom/login"})
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
     private static final String JDBC_URL = "jdbc:mysql://116.204.101.203:3306/userinfo";
     private static final String JDBC_USER = "userInfo";

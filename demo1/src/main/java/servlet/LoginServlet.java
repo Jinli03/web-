@@ -35,7 +35,6 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("username",username);
             req.getRequestDispatcher("/ts.jsp").forward(req,resp);
         }
-
     }
 
     @Override
