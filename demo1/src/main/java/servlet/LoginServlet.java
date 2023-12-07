@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import select.Query;
 
 import java.io.IOException;
 
@@ -27,6 +28,11 @@ public class LoginServlet extends HttpServlet {
         }
         user = dao.cmlogin(loginuser);
         if(user != null){
+            try {
+                Query.query();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
             req.setAttribute("username",username);
             req.getRequestDispatcher("/canteen-manager.jsp").forward(req,resp);
         }
