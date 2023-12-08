@@ -7,7 +7,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import select.Query;
 
 import java.io.IOException;
 
@@ -15,6 +14,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 在 Java Servlet 中添加 CORS 头部
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         User loginuser = new User();
@@ -22,17 +22,12 @@ public class LoginServlet extends HttpServlet {
         loginuser.setPassword(password);
         UserDao dao = new UserDao();
         User user = dao.salogin(loginuser);
-        if(user != null){
+        if (user != null) {
             req.setAttribute("username",username);
             req.getRequestDispatcher("/sysadmin.jsp").forward(req,resp);
         }
         user = dao.cmlogin(loginuser);
         if(user != null){
-            try {
-                Query.query();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
             req.setAttribute("username",username);
             req.getRequestDispatcher("/canteen-manager.jsp").forward(req,resp);
         }

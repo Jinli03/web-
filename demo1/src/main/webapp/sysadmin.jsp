@@ -5,9 +5,15 @@
 <html>
 <head>
     <title>系统管理员</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
 </head>
 <body>
 欢迎你${username}系统管理员
-
+<a href="/demo1_war_exploded/QueryServlet">查询食堂管理员</a>
 </body>
 </html>
