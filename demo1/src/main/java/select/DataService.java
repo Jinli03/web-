@@ -25,5 +25,20 @@ public class DataService {
         sqlSession.commit();
         sqlSession.close();
     }
+    public Cuser selectCanteenManagerByUsername(String username) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Cuser cuser = mapper.selectCanteenManagerByUsername(username);
+        sqlSession.close();
+        return cuser;
+    }
+    public void updateCanteenManager(Cuser cuser) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateCanteenManager(cuser);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
 }
 

@@ -8,5 +8,6 @@ import java.util.List;
 public interface UserMapper {
     List<Cuser> selectAll();
     void addCanteenManager(Cuser cuser);
-    User selectByusername(String username);
+    Cuser selectCanteenManagerByUsername(String username);
+    void updateCanteenManager(Cuser cuser);
 }

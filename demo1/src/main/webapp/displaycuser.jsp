@@ -18,7 +18,7 @@
     <tr align="centre">
         <td>${item.username}</td>
         <td>${item.canteen}</td>
-        <td><a href="#">修改</a><a href="#">删除</a></td>
+        <td><a href="/demo1_war_exploded/SelectCanteenManagerByUsernameServlet?username=${item.username}">修改</a><a href="#">删除</a></td>
     </tr>
     </c:forEach>
     <script>

@@ -9,7 +9,12 @@
     <insert id="addCanteenManager">
         insert into canteen_manager (username, password, canteen) values (#{username},#{password},#{canteen});
     </insert>
-    <select id="selectByusername" resultType="entity.User">
-        select * from ts where username = #{username};
+    <select id="selectCanteenManagerByUsername" resultType="entity.Cuser">
+        select * from canteen_manager where username = #{username};
     </select>
+    <update id="updateCanteenManager" >
+        UPDATE canteen_manager
+        SET password = #{password}, canteen = #{canteen}
+        WHERE username = #{username};
+    </update>
 </mapper>
