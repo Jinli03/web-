@@ -17,4 +17,8 @@
         SET password = #{password}, canteen = #{canteen}
         WHERE username = #{username};
     </update>
+    <delete id="deleteCanteenManager">
+        DELETE FROM canteen_manager
+        WHERE username = #{username};
+    </delete>
 </mapper>

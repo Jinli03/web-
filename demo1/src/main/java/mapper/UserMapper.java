@@ -1,7 +1,6 @@
 package mapper;
 
 import entity.Cuser;
-import entity.User;
 
 import java.util.List;
 
@@ -10,4 +9,5 @@ public interface UserMapper {
     void addCanteenManager(Cuser cuser);
     Cuser selectCanteenManagerByUsername(String username);
     void updateCanteenManager(Cuser cuser);
+    void deleteCanteenManager(String username);
 }

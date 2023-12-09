@@ -39,6 +39,13 @@ public class DataService {
         sqlSession.commit();
         sqlSession.close();
     }
+    public void deleteCanteenManager(String username) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteCanteenManager(username);
+        sqlSession.commit();
+        sqlSession.close();
+    }
 
 }
 
