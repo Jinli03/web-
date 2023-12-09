@@ -2,6 +2,7 @@ package entity;
 
 public class Cuser {
     private String username;
+    private String password;
     private String canteen;
 
     public String getUsername() {
@@ -20,6 +21,14 @@ public class Cuser {
 
     public void setCanteen(String canteen) {
         this.canteen = canteen;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

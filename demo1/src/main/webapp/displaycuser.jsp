@@ -6,6 +6,7 @@
     <title>Title</title>
 </head>
 <body>
+<input type="button" value="新增" id="add"><br>
 <hr>
 <table border="1" cellspacing="0" width="800">
     <tr>
@@ -20,5 +21,10 @@
         <td><a href="#">修改</a><a href="#">删除</a></td>
     </tr>
     </c:forEach>
+    <script>
+        document.getElementById("add").onclick = function(){
+            location.href="/demo1_war_exploded/addcanteenmanager.jsp";
+        }
+    </script>
 </body>
 </html>

@@ -6,6 +6,9 @@
     <select id="selectAll" resultType="entity.Cuser">
         select username,canteen from canteen_manager;
     </select>
+    <insert id="addCanteenManager">
+        insert into canteen_manager (username, password, canteen) values (#{username},#{password},#{canteen});
+    </insert>
     <select id="selectByusername" resultType="entity.User">
         select * from ts where username = #{username};
     </select>
