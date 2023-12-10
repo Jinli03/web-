@@ -21,6 +21,7 @@ public interface UserMapper {
     void deleteCanteen(String name);
     //系统管理员对评价信息删查
     List<Comment> selectAllComment();
+    void deleteComment(int id);
     //系统管理员对交流社区信息删查
 
 }

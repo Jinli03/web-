@@ -94,6 +94,13 @@ public class DataService {
         sqlSession.close();
         return comment;
     }
+    public void deleteComment(int id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteComment(id);
+        sqlSession.commit();
+        sqlSession.close();
+    }
 
 }
 

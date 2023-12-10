@@ -46,4 +46,9 @@
     <select id="selectAllComment" resultType="entity.Comment">
         select id,canteen,dish,time,cperson,cmessage,grade,rperson,rmessage from comment;
     </select>
+    <delete id="deleteComment">
+        DELETE FROM comment
+        WHERE id = #{id};
+    </delete>
+
 </mapper>

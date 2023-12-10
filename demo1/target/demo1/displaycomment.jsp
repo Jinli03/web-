@@ -31,8 +31,8 @@
         <td>${item.grade}</td>
         <td>${item.rperson}</td>
         <td>${item.rmessage}</td>
-        <td><a href="/demo1_war_exploded/SelectCommentByIdServlet?name=${item.id}">修改</a>
-            <a href="/demo1_war_exploded/DeleteCanteenByNameServlet?name=${item.id}">删除</a></td>
+        <td><a href="/demo1_war_exploded/SelectCommentByIdServlet?id=${item.id}">修改</a>
+            <a href="/demo1_war_exploded/DeleteCommentByIdServlet?id=${item.id}">删除</a></td>
     </tr>
     </c:forEach>
 
