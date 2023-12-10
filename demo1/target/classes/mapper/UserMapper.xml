@@ -42,5 +42,8 @@
         DELETE FROM canteen
         WHERE name = #{name};
     </delete>
-
+<!--    系统管理员对评价信息-->
+    <select id="selectAllComment" resultType="entity.Comment">
+        select id,canteen,dish,time,cperson,cmessage,grade,rperson,rmessage from comment;
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package select;
 
 import entity.Canteen;
+import entity.Comment;
 import entity.Cuser;
 import mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class DataService {
     SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();
-    //食堂管理员增删改查
+    //系统管理员对食堂管理员增删改查
     public List<Cuser> selectAllCanteenManager() {
         SqlSession sqlSession = factory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
@@ -49,7 +50,7 @@ public class DataService {
         sqlSession.close();
     }
 
-    //食堂增删改查
+    //系统管理员对食堂增删改查
     public List<Canteen> selectAllCanteen() {
         SqlSession sqlSession = factory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
@@ -84,6 +85,14 @@ public class DataService {
         mapper.deleteCanteen(username);
         sqlSession.commit();
         sqlSession.close();
+    }
+    //系统管理员对评价信息删查
+    public List<Comment> selectAllComment() {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Comment> comment = mapper.selectAllComment();
+        sqlSession.close();
+        return comment;
     }
 
 }

@@ -16,5 +16,6 @@
 欢迎你${username}系统管理员
 <a href="/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a>
 <a href="/demo1_war_exploded/QueryCanteenServlet">查询食堂</a>
+<a href="/demo1_war_exploded/QueryCommentServlet">查询评价信息</a>
 </body>
 </html>
