@@ -1,5 +1,6 @@
 package select;
 
+import entity.Canteen;
 import entity.Cuser;
 import mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
@@ -11,10 +12,11 @@ import java.util.List;
 
 public class DataService {
     SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();
-    public List<Cuser> query() {
+    //食堂管理员增删改查
+    public List<Cuser> selectAllCanteenManager() {
         SqlSession sqlSession = factory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<Cuser> cuser = mapper.selectAll();
+        List<Cuser> cuser = mapper.selectAllCanteenManager();
         sqlSession.close();
         return cuser;
     }
@@ -43,6 +45,43 @@ public class DataService {
         SqlSession sqlSession = factory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         mapper.deleteCanteenManager(username);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    //食堂增删改查
+    public List<Canteen> selectAllCanteen() {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Canteen> canteen = mapper.selectAllCanteen();
+        sqlSession.close();
+        return canteen;
+    }
+    public void addCanteen(Canteen canteen) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.addCanteen(canteen);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public Canteen selectCanteenByName(String name) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Canteen canteen = mapper.selectCanteenByCanteenname(name);
+        sqlSession.close();
+        return canteen;
+    }
+    public void updateCanteen(Canteen canteen) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateCanteen(canteen);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public void deleteCanteen(String username) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteCanteen(username);
         sqlSession.commit();
         sqlSession.close();
     }

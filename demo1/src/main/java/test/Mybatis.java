@@ -20,7 +20,7 @@ public class Mybatis {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         //List <User> user = sqlSession.selectList("test.selectAll");
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List<Cuser> cuser = userMapper.selectAll();
+        List<Cuser> cuser = userMapper.selectAllCanteenManager();
         System.out.println(cuser);
         sqlSession.close();
     }

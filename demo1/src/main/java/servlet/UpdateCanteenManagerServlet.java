@@ -23,7 +23,7 @@ public class UpdateCanteenManagerServlet extends HttpServlet {
         cuser.setPassword(password);
         cuser.setCanteen(canteen);
         dataService.updateCanteenManager(cuser);
-        req.getRequestDispatcher("/QueryServlet").forward(req,resp);
+        req.getRequestDispatcher("/QueryCanteenManagerServlet").forward(req,resp);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package servlet;
 
-import com.google.gson.Gson;
-import entity.Cuser;
+import entity.Canteen;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,18 +9,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import select.DataService;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-@WebServlet(name = "QueryServlet", urlPatterns = {"/QueryServlet"})
-public class QueryServlet extends HttpServlet {
+@WebServlet(name = "UpdateCanteenServlet", urlPatterns = {"/UpdateCanteenServlet"})
+public class UpdateCanteenServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DataService dataService = new DataService();
-        List<Cuser> cuser = dataService.query();
-        req.setAttribute("cuser",cuser);
-        System.out.println(cuser);
-        req.getRequestDispatcher("/displaycuser.jsp").forward(req,resp);
+        String name = req.getParameter("name");
+        String time = req.getParameter("time");
+        String position = req.getParameter("position");
+        Canteen canteen = new Canteen();
+        canteen.setName(name);
+        canteen.setTime(time);
+        canteen.setPosition(position);
+        dataService.updateCanteen(canteen);
+        req.getRequestDispatcher("/QueryCanteenServlet").forward(req,resp);
     }
 
     @Override

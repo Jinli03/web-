@@ -16,7 +16,7 @@ public class DeleteCanteenManagerByUsernameServlet extends HttpServlet {
         DataService dataService = new DataService();
         String username = req.getParameter("username");
         dataService.deleteCanteenManager(username);
-        req.getRequestDispatcher("/QueryServlet").forward(req,resp);
+        req.getRequestDispatcher("/QueryCanteenManagerServlet").forward(req,resp);
     }
 
     @Override

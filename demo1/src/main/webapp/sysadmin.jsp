@@ -14,6 +14,7 @@
 </head>
 <body>
 欢迎你${username}系统管理员
-<a href="/demo1_war_exploded/QueryServlet">查询食堂管理员</a>
+<a href="/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a>
+<a href="/demo1_war_exploded/QueryCanteenServlet">查询食堂</a>
 </body>
 </html>

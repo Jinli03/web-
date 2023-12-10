@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
-    <select id="selectAll" resultType="entity.Cuser">
+<!--    食堂管理员-->
+    <select id="selectAllCanteenManager" resultType="entity.Cuser">
         select username,canteen from canteen_manager;
     </select>
     <insert id="addCanteenManager">
@@ -21,4 +22,25 @@
         DELETE FROM canteen_manager
         WHERE username = #{username};
     </delete>
+    <!--    食堂-->
+    <select id="selectAllCanteen" resultType="entity.Canteen">
+        select name,time,position from canteen;
+    </select>
+
+    <insert id="addCanteen">
+        insert into canteen (name, time, position) values (#{name},#{time},#{position});
+    </insert>
+    <select id="selectCanteenByCanteenname" resultType="entity.Canteen">
+        select * from canteen where name = #{name};
+    </select>
+    <update id="updateCanteen">
+        UPDATE canteen
+        SET time = #{time}, position = #{position}
+        WHERE name = #{name};
+    </update>
+    <delete id="deleteCanteen">
+        DELETE FROM canteen
+        WHERE name = #{name};
+    </delete>
+
 </mapper>

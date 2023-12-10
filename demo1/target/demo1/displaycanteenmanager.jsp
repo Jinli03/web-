@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>查询食堂管理员</title>
 </head>
 <body>
 <input type="button" value="新增" id="add"><br>
