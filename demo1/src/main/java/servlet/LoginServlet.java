@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         user = dao.cmlogin(loginuser);
         if(user != null){
             req.setAttribute("username",username);
-            req.getRequestDispatcher("/canteen-manager.jsp").forward(req,resp);
+            req.getRequestDispatcher("/Cafeteria.jsp").forward(req,resp);
         }
         user = dao.tslogin(loginuser);
         if(user != null){
