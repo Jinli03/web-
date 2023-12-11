@@ -3,6 +3,7 @@ package select;
 import entity.Canteen;
 import entity.Comment;
 import entity.Cuser;
+import entity.Forum;
 import mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -101,6 +102,27 @@ public class DataService {
         sqlSession.commit();
         sqlSession.close();
     }
-
+    //系统管理员对论坛信息删查
+    public List<Forum> selectAllForum() {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Forum> forum = mapper.selectAllForum();
+        sqlSession.close();
+        return forum;
+    }
+    public void deleteForum(int id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteForum(id);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public List<String> selectAllForumTitles(){
+        List<String> titles = new ArrayList<>();
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        titles = mapper.selectAllForumTitles();
+        return titles;
+    }
 }
 

@@ -35,6 +35,6 @@
             <a href="/demo1_war_exploded/DeleteCommentByIdServlet?id=${item.id}">删除</a></td>
     </tr>
     </c:forEach>
-
+</table>
 </body>
 </html>

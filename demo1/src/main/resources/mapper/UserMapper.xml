@@ -50,5 +50,17 @@
         DELETE FROM comment
         WHERE id = #{id};
     </delete>
+<!--系统管理员对论坛信息-->
+    <select id="selectAllForum" resultType="entity.Forum">
+        select id,title,message,pperson,posttime,likes,rperson,rmessage,rposttime from forum;
+    </select>
+    <delete id="deleteForum">
+        DELETE FROM forum
+        WHERE id = #{id};
+    </delete>
+    <select id="selectAllForumTitles" resultType="java.lang.String">
+        SELECT DISTINCT title FROM forum;
+    </select>
+
 
 </mapper>

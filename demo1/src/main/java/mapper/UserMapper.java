@@ -3,6 +3,7 @@ package mapper;
 import entity.Canteen;
 import entity.Comment;
 import entity.Cuser;
+import entity.Forum;
 
 import java.util.List;
 
@@ -23,5 +24,8 @@ public interface UserMapper {
     List<Comment> selectAllComment();
     void deleteComment(int id);
     //系统管理员对交流社区信息删查
+    List<Forum> selectAllForum();
+    List<String> selectAllForumTitles();
+    void deleteForum(int id);
 
 }
