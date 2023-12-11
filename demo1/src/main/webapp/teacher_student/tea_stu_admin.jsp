@@ -14,7 +14,7 @@
 <header>
     <nav>
         <ul>
-            <li><a href="index.jsp">首页</a></li>
+            <li><a href="index_ts.jsp">首页</a></li>
             <li><a href="community.jsp">交流社区</a></li>
             <li><a href="search.jsp">菜品检索</a></li>
             <li><a href="profile.jsp">个人中心</a></li>
