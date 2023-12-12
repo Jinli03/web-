@@ -15,8 +15,6 @@ public interface UserMapper {
     Dish selectDishesByid(String id);
     void updateDishes(Dish dish);
     void deleteDishes(String id);
-
-
     //系统管理员对食堂管理员信息增删改查
     List<Cuser> selectAllCanteenManager();
     void addCanteenManager(Cuser cuser);
@@ -36,5 +34,7 @@ public interface UserMapper {
     List<Forum> selectAllForum();
     List<String> selectAllForumTitles();
     void deleteForum(int id);
+    //师生对食堂信息的检索
+    List<Dish> selectAllDishesByConditions(Dish dish);
 
 }
