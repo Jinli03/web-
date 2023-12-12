@@ -18,9 +18,10 @@
 <h2>所有菜品列表：</h2>
 
 <c:forEach var="dish" items="${AllDishes}">
-    <p><img src="${dish.picture}" alt="仅供参考"></p>
-    <p>菜名：${dish.name}</p>
-    <p>菜系：${dish.class}</p>
+    <p><img src="${dish.picture}" alt="Image Description" style="width: 300px; height: 200px;">
+    <p>菜名：${dish.id}</p>
+    <p>菜系：${dish.kind}</p>
+    <p>菜系：${dish.price}</p>
 
     <hr>
 </c:forEach>

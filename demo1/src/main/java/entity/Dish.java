@@ -6,6 +6,8 @@ public class Dish {
     private String picture;
 
     private String price;
+    private float grade;
+    private String canteen;
 
     public Dish() {
     }
@@ -21,6 +23,15 @@ public class Dish {
         this.kind = kind;
         this.picture = picture;
         this.price = price;
+    }
+
+    public Dish(String id, String kind, String picture, String price, float grade, String canteen) {
+        this.id = id;
+        this.kind = kind;
+        this.picture = picture;
+        this.price = price;
+        this.grade = grade;
+        this.canteen = canteen;
     }
 
     /**
@@ -89,5 +100,37 @@ public class Dish {
      */
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    /**
+     * 获取
+     * @return grade
+     */
+    public float getGrade() {
+        return grade;
+    }
+
+    /**
+     * 设置
+     * @param grade
+     */
+    public void setGrade(float grade) {
+        this.grade = grade;
+    }
+
+    /**
+     * 获取
+     * @return canteen
+     */
+    public String getCanteen() {
+        return canteen;
+    }
+
+    /**
+     * 设置
+     * @param canteen
+     */
+    public void setCanteen(String canteen) {
+        this.canteen = canteen;
     }
 }
