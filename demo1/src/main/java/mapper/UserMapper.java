@@ -4,10 +4,19 @@ import entity.Canteen;
 import entity.Comment;
 import entity.Cuser;
 import entity.Forum;
+import entity.*;
 
 import java.util.List;
 
 public interface UserMapper {
+    //菜品增删改
+    List<Dish> selectAllDishes();
+    void addDishes(Dish dish);
+    Dish selectDishesByid(String id);
+    void updateDishes(Dish dish);
+    void deleteDishes(String id);
+
+
     //系统管理员对食堂管理员信息增删改查
     List<Cuser> selectAllCanteenManager();
     void addCanteenManager(Cuser cuser);

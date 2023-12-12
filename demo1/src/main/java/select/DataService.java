@@ -4,6 +4,7 @@ import entity.Canteen;
 import entity.Comment;
 import entity.Cuser;
 import entity.Forum;
+import entity.*;
 import mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -14,6 +15,46 @@ import java.util.List;
 
 public class DataService {
     SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();
+
+
+    //菜品增删改
+    public List<Dish> selectAllDishes() {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Dish> canteen = mapper.selectAllDishes();
+        sqlSession.close();
+        return canteen;
+    }
+    public void addDishes(Dish dish) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.addDishes(dish);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public Dish selectDishesByUserid(String id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Dish cuser = mapper.selectDishesByid(id);
+        sqlSession.close();
+        return cuser;
+    }
+    public void updateDishes(Dish dish) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateDishes(dish);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public void deleteDishes(String id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteDishes(id);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+
     //系统管理员对食堂管理员增删改查
     public List<Cuser> selectAllCanteenManager() {
         SqlSession sqlSession = factory.openSession();
