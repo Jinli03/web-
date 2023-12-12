@@ -165,5 +165,13 @@ public class DataService {
         titles = mapper.selectAllForumTitles();
         return titles;
     }
+    //师生检索菜品信息
+    public List<Dish> selectAllDishesByConditions(Dish dish){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class); // Assuming DishMapper is the correct mapper interface
+        List<Dish> dishes = mapper.selectAllDishesByConditions(dish);
+        sqlSession.close();
+        return dishes;
+    }
 }
 

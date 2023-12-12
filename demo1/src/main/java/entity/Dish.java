@@ -4,8 +4,7 @@ public class Dish {
     private String id;
     private String kind;
     private String picture;
-
-    private String price;
+    private float price;
     private float grade;
     private String canteen;
 
@@ -18,14 +17,14 @@ public class Dish {
         this.picture = picture;
     }
 
-    public Dish(String id, String kind, String picture, String price) {
+    public Dish(String id, String kind, String picture, float price) {
         this.id = id;
         this.kind = kind;
         this.picture = picture;
         this.price = price;
     }
 
-    public Dish(String id, String kind, String picture, String price, float grade, String canteen) {
+    public Dish(String id, String kind, String picture, float price, float grade, String canteen) {
         this.id = id;
         this.kind = kind;
         this.picture = picture;
@@ -90,7 +89,7 @@ public class Dish {
      * 获取
      * @return price
      */
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
 
@@ -98,7 +97,7 @@ public class Dish {
      * 设置
      * @param price
      */
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 

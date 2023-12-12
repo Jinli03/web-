@@ -5,10 +5,10 @@
 <mapper namespace="mapper.UserMapper">
     <!--    菜品-->
     <select id="selectAllDishes" resultType="entity.Dish">
-        select id,kind,picture,price from dishes;
+        select id,kind,picture,price,grade,canteen from dishes;
     </select>
     <insert id="addDishes">
-        insert into dishes (id, kind, picture,price) values (#{id},#{class},#{picture},#{price});
+        insert into dishes (id, kind, picture,price,grade) values (#{id},#{class},#{picture},#{price},#{grade},#{canteen});
     </insert>
     <select id="selectDishesByid" resultType="entity.Dish">
         select * from dishes where id = #{id};
@@ -82,6 +82,23 @@
     <select id="selectAllForumTitles" resultType="java.lang.String">
         SELECT DISTINCT title FROM forum;
     </select>
+<!--    师生对食堂信息的检索-->
+    <select id="selectAllDishesByConditions" resultType="entity.Dish">
+        SELECT id, kind, picture, price, grade, canteen FROM dishes
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="kind != null and kind != ''">
+                AND kind = #{kind}
+            </if>
+            <if test="price != 0.0">
+                AND price &lt; #{price}
+            </if>
+            <if test="canteen != null and canteen != ''">
+                AND canteen = #{canteen}
+            </if>
+        </trim>
+    </select>
+
+
 
 
 </mapper>
