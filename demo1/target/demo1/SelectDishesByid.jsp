@@ -52,7 +52,6 @@
 
 
 <div style="margin-top: 20px; text-align: center;">
-  <h2>搜索结果</h2>
     <c:choose>
         <c:when test="${not empty dish}">
             <p><img src="${dish.picture}" alt="Image Description" style="width: 300px; height: 200px;"></p>
