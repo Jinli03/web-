@@ -19,12 +19,13 @@ public class addDishServlet extends HttpServlet {
         String imageName=request.getParameter("imageName");
         String dishName=request.getParameter("dishName");
         String cuisine=request.getParameter("cuisine");
-        String price=request.getParameter("price");
+        String price1=request.getParameter("price");
         String ratings=request.getParameter("rating");
         String canteen=request.getParameter("canteen");
 
-        float rating;
+        float rating,price;
         rating = Float.parseFloat(ratings);//强制转换为float类型
+        price=Float.parseFloat(price1);
 
        //给dish设置属性
         Dish dish=new Dish();
