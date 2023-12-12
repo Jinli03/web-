@@ -35,9 +35,9 @@ public class DataService {
     public Dish selectDishesByUserid(String id) {
         SqlSession sqlSession = factory.openSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        Dish cuser = mapper.selectDishesByid(id);
+        Dish dish = mapper.selectDishesByid(id);
         sqlSession.close();
-        return cuser;
+        return dish;
     }
     public void updateDishes(Dish dish) {
         SqlSession sqlSession = factory.openSession();

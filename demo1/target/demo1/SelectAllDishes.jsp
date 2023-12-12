@@ -21,7 +21,9 @@
     <p><img src="${dish.picture}" alt="Image Description" style="width: 300px; height: 200px;">
     <p>菜名：${dish.id}</p>
     <p>菜系：${dish.kind}</p>
-    <p>菜系：${dish.price}</p>
+    <p>价格：￥${dish.price}</p>
+    <p>评分：${dish.grade}</p>
+    <p>供应食堂：${dish.canteen}</p>
 
     <hr>
 </c:forEach>
