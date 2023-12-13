@@ -97,4 +97,8 @@
             </if>
         </trim>
     </select>
+    <select id="selectDishCommentById" resultType="entity.Comment">
+        select * from comment where dish = #{id};
+    </select>
+
 </mapper>

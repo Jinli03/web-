@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>检索菜品</title>
@@ -21,6 +20,7 @@
         <th>价格</th>
         <th>评分</th>
         <th>图片</th>
+        <th>添加评价</th>
     </tr>
     <c:forEach items="${dishes}" var="item" varStatus="status">
         <tr align="centre">
@@ -30,6 +30,8 @@
             <td>${item.price}</td>
             <td>${item.grade}</td>
             <td>${item.picture}</td>
+            <td><a href="/demo1_war_exploded/SelectCanteenByNameServlet?id=${item.id}">评价</a>
+                <a href="/demo1_war_exploded/SelectDishCommentByIdServlet?id=${item.id}">查看评价信息</a></td>
         </tr>
     </c:forEach>
 </table>

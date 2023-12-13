@@ -17,7 +17,6 @@
             <li><a href="index_ts.jsp">首页</a></li>
             <li><a href="community.jsp">交流社区</a></li>
             <li><a href="/demo1_war_exploded/SelectAllDishesByServlet">菜品检索</a></li>
-            <li><a href="/demo1_war_exploded/QueryDishesServlet">菜品检索</a></li>
             <li><a href="profile.jsp">个人中心</a></li>
         </ul>
     </nav>

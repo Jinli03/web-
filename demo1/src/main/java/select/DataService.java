@@ -173,5 +173,12 @@ public class DataService {
         sqlSession.close();
         return dishes;
     }
+    public List<Comment> selectDishCommentById(String id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Comment> comment = mapper.selectDishCommentById(id);
+        sqlSession.close();
+        return comment;
+    }
 }
 
