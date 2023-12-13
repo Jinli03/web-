@@ -6,6 +6,7 @@
     <title>查询评价信息</title>
 </head>
 <body>
+
 <hr>
 <table border="1" cellspacing="0" width="800">
     <tr>

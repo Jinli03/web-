@@ -3,6 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
+    <!--    菜品-->
+    <select id="selectAllDishes" resultType="entity.Dish">
+        select id,kind,picture,price,grade,canteen from dishes;
+    </select>
+    <insert id="addDishes">
+        insert into dishes (id, kind, picture,price,grade,canteen) values (#{id},#{kind},#{picture},#{price},#{grade},#{canteen});
+    </insert>
+    <select id="selectDishesByid" resultType="entity.Dish">
+        select * from dishes where id = #{id};
+    </select>
+    <update id="updateDishes" >
+        UPDATE dishes
+        SET kind = #{class}, picture = #{picture},price=#{price},grade=#{grade},canteen=#{canteen}
+        WHERE id = #{id};
+    </update>
+    <delete id="deleteDishes">
+        DELETE FROM dishes
+        WHERE id = #{id};
+    </delete>
+
+
 <!--    食堂管理员-->
     <select id="selectAllCanteenManager" resultType="entity.Cuser">
         select username,canteen from canteen_manager;
@@ -61,6 +82,29 @@
     <select id="selectAllForumTitles" resultType="java.lang.String">
         SELECT DISTINCT title FROM forum;
     </select>
-
+<!--    师生对食堂信息的检索-->
+    <select id="selectAllDishesByConditions" resultType="entity.Dish">
+        SELECT id, kind, picture, price, grade, canteen FROM dishes
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="kind != null and kind != ''">
+                AND kind = #{kind}
+            </if>
+            <if test="price != 0.0">
+                AND price &lt; #{price}
+            </if>
+            <if test="canteen != null and canteen != ''">
+                AND canteen = #{canteen}
+            </if>
+        </trim>
+    </select>
+    <select id="selectDishCommentById" resultType="entity.Comment">
+        select * from comment where dish = #{id};
+    </select>
+    <insert id="addDishCommentById">
+        insert into comment (canteen, dish, time, cperson, cmessage, grade) values (#{canteen},#{dish},#{time},#{cperson},#{cmessage},#{grade});
+    </insert>
+    <select id="selectDishById" resultType="entity.Dish">
+        select * from dishes where id = #{dish};
+    </select>
 
 </mapper>
