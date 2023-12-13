@@ -15,7 +15,7 @@
     </select>
     <update id="updateDishes" >
         UPDATE dishes
-        SET kind = #{class}, picture = #{picture}
+        SET kind = #{class}, picture = #{picture},price=#{price},grade=#{grade},canteen=#{canteen}
         WHERE id = #{id};
     </update>
     <delete id="deleteDishes">
