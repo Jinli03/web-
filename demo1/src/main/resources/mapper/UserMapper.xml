@@ -100,5 +100,11 @@
     <select id="selectDishCommentById" resultType="entity.Comment">
         select * from comment where dish = #{id};
     </select>
+    <insert id="addDishCommentById">
+        insert into comment (canteen, dish, time, cperson, cmessage, grade) values (#{canteen},#{dish},#{time},#{cperson},#{cmessage},#{grade});
+    </insert>
+    <select id="selectDishById" resultType="entity.Dish">
+        select * from dishes where id = #{dish};
+    </select>
 
 </mapper>

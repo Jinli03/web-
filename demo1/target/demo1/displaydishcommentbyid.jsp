@@ -23,9 +23,9 @@
             <td>${item.grade}</td>
         </tr>
     </c:forEach>
-    <form action="/demo1_war_exploded/SelectAllDishesByServlet" method="post">
-        <input type="submit" value="返回">
-    </form>
 </table>
+<form action="/demo1_war_exploded/SelectAllDishesByServlet" method="post">
+    <input type="submit" value="返回">
+</form>
 </body>
 </html>

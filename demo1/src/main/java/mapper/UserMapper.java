@@ -37,4 +37,6 @@ public interface UserMapper {
     //师生对食堂信息的检索
     List<Dish> selectAllDishesByConditions(Dish dish);
     List<Comment> selectDishCommentById(String id);
+    void addDishCommentById(Comment comment);
+    Dish selectDishById(String dish);
 }

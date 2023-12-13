@@ -15,7 +15,7 @@
     </select>
     <update id="updateDishes" >
         UPDATE dishes
-        SET kind = #{class}, picture = #{picture}
+        SET kind = #{class}, picture = #{picture},price=#{price},grade=#{grade},canteen=#{canteen}
         WHERE id = #{id};
     </update>
     <delete id="deleteDishes">
@@ -99,6 +99,12 @@
     </select>
     <select id="selectDishCommentById" resultType="entity.Comment">
         select * from comment where dish = #{id};
+    </select>
+    <insert id="addDishCommentById">
+        insert into comment (canteen, dish, time, cperson, cmessage, grade) values (#{canteen},#{dish},#{time},#{cperson},#{cmessage},#{grade});
+    </insert>
+    <select id="selectDishById" resultType="entity.Dish">
+        select * from dishes where id = #{dish};
     </select>
 
 </mapper>
