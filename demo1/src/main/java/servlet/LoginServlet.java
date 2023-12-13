@@ -2,6 +2,7 @@ package servlet;
 
 import dao.UserDao;
 import entity.User;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,8 +15,9 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 在 Java Servlet 中添加 CORS 头部
+        ServletContext servletContext = getServletContext();
         String username = req.getParameter("username");
+        servletContext.setAttribute("username", username);
         String password = req.getParameter("password");
         User loginuser = new User();
         loginuser.setUsername(username);
@@ -29,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         user = dao.cmlogin(loginuser);
         if(user != null){
             req.setAttribute("username",username);
-            req.getRequestDispatcher("/canteen-manager.jsp").forward(req,resp);
+            req.getRequestDispatcher("/Cafeteria.jsp").forward(req,resp);
         }
         user = dao.tslogin(loginuser);
         if(user != null){

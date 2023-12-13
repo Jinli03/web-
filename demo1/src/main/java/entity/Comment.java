@@ -7,7 +7,7 @@ public class Comment {
     private String time;
     private String cperson;
     private String cmessage;
-    private int grade;
+    private float grade;
     private String rperson;
     private String rmessage;
 
@@ -59,11 +59,11 @@ public class Comment {
         this.cmessage = cmessage;
     }
 
-    public int getGrade() {
+    public float getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(float grade) {
         this.grade = grade;
     }
 

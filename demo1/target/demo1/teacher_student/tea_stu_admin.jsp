@@ -6,22 +6,33 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<<<<<<< HEAD
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+=======
+>>>>>>> origin/main
 <html>
 <head>
     <title>学校食堂点评系统</title>
 </head>
 <body>
+<<<<<<< HEAD
 欢迎你${username}师生
 <header>
 
+=======
+<header>
+>>>>>>> origin/main
     <nav>
         <ul>
             <li><a href="index_ts.jsp">首页</a></li>
             <li><a href="community.jsp">交流社区</a></li>
+<<<<<<< HEAD
             <li><a href="search.jsp">菜品检索</a></li>
+=======
+            <li><a href="/demo1_war_exploded/SelectAllDishesByServlet">菜品检索</a></li>
+>>>>>>> origin/main
             <li><a href="profile.jsp">个人中心</a></li>
         </ul>
     </nav>

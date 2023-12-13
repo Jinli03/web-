@@ -1,6 +1,5 @@
 package servlet;
 
-import entity.Canteen;
 import entity.Comment;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
