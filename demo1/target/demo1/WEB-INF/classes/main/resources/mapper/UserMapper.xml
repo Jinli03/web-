@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+<!--    食堂管理员-->
+    <select id="selectAllCanteenManager" resultType="entity.Cuser">
+        select username,canteen from canteen_manager;
+    </select>
+    <insert id="addCanteenManager">
+        insert into canteen_manager (username, password, canteen) values (#{username},#{password},#{canteen});
+    </insert>
+    <select id="selectCanteenManagerByUsername" resultType="entity.Cuser">
+        select * from canteen_manager where username = #{username};
+    </select>
+    <update id="updateCanteenManager" >
+        UPDATE canteen_manager
+        SET password = #{password}, canteen = #{canteen}
+        WHERE username = #{username};
+    </update>
+    <delete id="deleteCanteenManager">
+        DELETE FROM canteen_manager
+        WHERE username = #{username};
+    </delete>
+    <!--    食堂-->
+    <select id="selectAllCanteen" resultType="entity.Canteen">
+        select name,time,position from canteen;
+    </select>
+
+    <insert id="addCanteen">
+        insert into canteen (name, time, position) values (#{name},#{time},#{position});
+    </insert>
+    <select id="selectCanteenByCanteenname" resultType="entity.Canteen">
+        select * from canteen where name = #{name};
+    </select>
+    <update id="updateCanteen">
+        UPDATE canteen
+        SET time = #{time}, position = #{position}
+        WHERE name = #{name};
+    </update>
+    <delete id="deleteCanteen">
+        DELETE FROM canteen
+        WHERE name = #{name};
+    </delete>
+<!--    系统管理员对评价信息-->
+    <select id="selectAllComment" resultType="entity.Comment">
+        select id,canteen,dish,time,cperson,cmessage,grade,rperson,rmessage from comment;
+    </select>
+    <delete id="deleteComment">
+        DELETE FROM comment
+        WHERE id = #{id};
+    </delete>
+<!--系统管理员对论坛信息-->
+    <select id="selectAllForum" resultType="entity.Forum">
+        select id,title,message,pperson,posttime,likes,rperson,rmessage,rposttime from forum;
+    </select>
+    <delete id="deleteForum">
+        DELETE FROM forum
+        WHERE id = #{id};
+    </delete>
+    <select id="selectAllForumTitles" resultType="java.lang.String">
+        SELECT DISTINCT title FROM forum;
+    </select>
+
+
+</mapper>
