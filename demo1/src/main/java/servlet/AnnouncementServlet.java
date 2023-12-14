@@ -29,7 +29,7 @@ public class AnnouncementServlet extends HttpServlet {
         request.setAttribute("time", time);
         request.setAttribute("import javax.servlet.http.*;content", content);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("canteen-manager.jsp");
         dispatcher.forward(request, response);
     }
 }
