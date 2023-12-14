@@ -15,13 +15,10 @@ public class SelectSingleDishServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String search=request.getParameter("search");
-
         DataService data=new DataService();
         Dish dish=data.selectDishesByUserid(search);
-
         request.setAttribute("dish",dish);
         request.getRequestDispatcher("SelectDishesByid.jsp").forward(request,response);
-
     }
 
     }

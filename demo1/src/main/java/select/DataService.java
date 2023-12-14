@@ -173,5 +173,26 @@ public class DataService {
         sqlSession.close();
         return dishes;
     }
+    public List<Comment> selectDishCommentById(String id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Comment> comment = mapper.selectDishCommentById(id);
+        sqlSession.close();
+        return comment;
+    }
+    public void addDishCommentById(Comment comment) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.addDishCommentById(comment);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public Dish selectDishById(String id) {
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Dish dish = mapper.selectDishById(id);
+        sqlSession.close();
+        return dish;
+    }
 }
 
