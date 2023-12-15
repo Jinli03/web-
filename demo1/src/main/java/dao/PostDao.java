@@ -1,0 +1,111 @@
+package dao;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import util.JDBCUtils;
+import entity.Post;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class PostDao {
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+    public void insertPost(Post post) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = JDBCUtils.getConnection();
+            String sql = "INSERT INTO posts (title, content, author) VALUES (?, ?, ?)";
+            preparedStatement = connection.prepareStatement(sql);
+
+            System.out.println("Executing SQL: " + sql); // 调试语句
+
+            preparedStatement.setString(1, post.getTitle());
+            preparedStatement.setString(2, post.getContent());
+            preparedStatement.setString(3, post.getAuthor());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected); // 调试语句
+        } catch (SQLException e) {
+            e.printStackTrace(); // 打印异常堆栈信息
+        } finally {
+            // 关闭资源
+            JDBCUtils.closeConnection(connection);
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public Post getPostById(int id) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Post post = null;
+
+        try {
+            connection = JDBCUtils.getConnection();
+            String sql = "SELECT * FROM posts WHERE id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String title = resultSet.getString("title");
+                String content = resultSet.getString("content");
+                String author = resultSet.getString("author");
+                Timestamp datePosted = resultSet.getTimestamp("datePosted");
+
+                post = new Post(id, title, content, author);
+                post.setDatePosted(datePosted);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeResultSet(resultSet);
+            //JDBCUtils.closeStatement(preparedStatement);
+            JDBCUtils.closeConnection(connection);
+        }
+        return post;
+    }
+    public List<Post> getAllPosts() {
+        List<Post> posts = new ArrayList<>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = JDBCUtils.getConnection();
+            String sql = "SELECT * FROM posts";
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String title = resultSet.getString("title");
+                String content = resultSet.getString("content");
+                String author = resultSet.getString("author");
+                Timestamp datePosted = resultSet.getTimestamp("datePosted");
+
+                Post post = new Post(id, title, content, author);
+                post.setDatePosted(datePosted);
+                posts.add(post);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeResultSet(resultSet);
+          //  JDBCUtils.closeStatement(statement);
+            JDBCUtils.closeConnection(connection);
+        }
+        return posts;
+    }
+
+
+}
