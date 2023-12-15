@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+
+
+}
+
+#cafeteria-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color:  #333;
+    padding: 10px;
+    border: 1px solid #333; /* 可选的边框样式 */
+}
+
+#cafeteria-description, #opening-hours {
+    margin: 0; /* 移除默认的margin */
+    color: white; /* 文本颜色 */
+}
+
+
+
+
+#notifications {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+nav ul {
+    list-style-type: none;
+    background-color: #444;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+nav ul li {
+    flex-grow: 1;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+
+
+
+
+.announcement-box {
+    border: 1px solid #000; /* 设置边框 */
+    margin-bottom: 20px; /* 每个公告之间的间隔 */
+    padding: 10px; /* 内部间距 */
+}
+    .announcement-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px; /* 标题和内容之间的间隔 */
+    }
+    .announcement-title {
+        font-weight: bold; /* 标题加粗 */
+    }
+    .announcement-time {
+        font-style: italic; /* 时间斜体显示 */
+    }
+    .announcement-content {
+        /* 可以添加内容区域的特定样式 */
+    }
+
+
+}
