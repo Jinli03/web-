@@ -15,7 +15,7 @@ public class Post {
         this.title = title;
         this.content = content;
         this.author = author;
-        //this.datePosted = new Date(); // 设置当前时间为发帖时间
+   this.datePosted = new Date();
     }
     public Post(int id, String title, String content, String author) {
         this.id = id;
@@ -24,6 +24,19 @@ public class Post {
         this.author = author;
         this.datePosted = datePosted;
     }
+    public Post(int id, String title, String content, String author, Date datePosted) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.author = author;
+        this.datePosted = datePosted;
+    }
+
+
+    public Post() {
+
+    }
+
     // Getter和Setter方法
     public int getId() {
         return id;

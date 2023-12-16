@@ -5,9 +5,15 @@
   Time: 17:19
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
 <html>
 <head>
+<%--    欢迎你${username}师生--%>
     <title>交流社区 - 学校食堂点评系统</title>
     <style>
         body {
@@ -125,7 +131,7 @@
 <main>
     <section id="post-search">
         <h2>搜索帖子</h2>
-        <form action="/SearchPostsServlet" method="get">
+        <form action="/demo1_war_exploded/SearchPostServlet" method="get">
             <input type="text" name="searchQuery" placeholder="按标题或用户名搜索">
             <button type="submit">搜索</button>
         </form>
@@ -133,30 +139,28 @@
 
     <section id="create-post">
         <h2>发表新帖</h2>
-        <form action="/CreatePostServlet" method="post" enctype="multipart/form-data">
+        <form action="/demo1_war_exploded/CreatePostServlet" method="post" >
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
-            <input type="file" name="image">
+<%--            <input type="file" name="image">--%>
             <button type="submit">发布</button>
         </form>
     </section>
 
     <section id="post-list">
         <h2>帖子列表</h2>
-        <%-- 这里可以添加Java代码来动态显示帖子列表 --%>
-        <%
-            // 示例Java代码
-            // List<Post> posts = getPosts(); // 获取帖子列表
-            // for (Post post : posts) {
-            //     out.println("<div class='post'>");
-            //     out.println("<h3>" + post.getTitle() + "</h3>");
-            //     out.println("<p>发布者: " + post.getAuthor() + "</p>");
-            //     out.println("<p>发布时间: " + post.getTimestamp() + "</p>");
-            //     out.println("<p>点赞数: " + post.getLikes() + "</p>");
-            //     out.println("</div>");
-            // }
-        %>
+
+        <c:forEach items="${posts}" var="post">
+            <div class='post'>
+                <h3>${post.title}</h3>
+                <p>发布者: ${post.author}</p>
+                <p>内容: ${post.content}</p>
+                <p>发布时间: <fmt:formatDate value="${post.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+            </div>
+        </c:forEach>
     </section>
+
+
 </main>
 
 <footer>
