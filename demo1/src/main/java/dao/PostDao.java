@@ -61,9 +61,11 @@ public class PostDao {
                 String content = resultSet.getString("content");
                 String author = resultSet.getString("author");
                 Timestamp timestamp = resultSet.getTimestamp("datePosted");
+                int likes=resultSet.getInt("likes");
                 Date datePosted = (timestamp != null) ? new Date(timestamp.getTime()) : null;
                 Post post = new Post(id, title, content, author);
                 post.setDatePosted(datePosted);
+                post.setLikes(likes);
                 posts.add(post);
             }
         } catch (SQLException e) {
@@ -126,4 +128,23 @@ public class PostDao {
         }
         return searchResults;
     }
+
+    public void increaseLike(int postId) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = JDBCUtils.getConnection();
+            String sql = "UPDATE posts SET likes = likes + 1 WHERE id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, postId);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeConnection(connection);
+        }
+    }
+
 }

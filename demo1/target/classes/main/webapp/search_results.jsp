@@ -20,6 +20,11 @@
         <p>${post.content}</p>
         <p>By: ${post.author}</p>
         <p>On: ${post.datePosted}</p>
+        <p>点赞数: ${post.likes}</p>
+        <!-- 点赞按钮 -->
+        <button onclick="likePost(${post.id})">点赞</button>
+        <!-- 查看评论链接 -->
+        <a href="viewComments.jsp?postId=${post.id}">查看评论</a>
     </div>
 </c:forEach>
 </body>

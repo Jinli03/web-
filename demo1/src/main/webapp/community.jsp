@@ -115,7 +115,23 @@
             padding: 15px;
             margin-bottom: 15px;
         }
+        .like-button {
+            background-color: #ffc0cb; /* 粉色背景 */
+            border: none; /* 无边框 */
+            color: white; /* 白色文字 */
+            padding: 15px; /* 足够的填充来形成一个圆 */
+            border-radius: 50%; /* 圆角边框形成圆形 */
+            cursor: pointer; /* 鼠标悬停时的手形光标 */
+            outline: none; /* 移除焦点时的轮廓线 */
+        }
 
+        .like-button:hover {
+            background-color: #ff99aa; /* 鼠标悬停时的背景颜色变深 */
+        }
+
+        .like-button:active {
+            background-color: #ff7788; /* 鼠标点击时的背景颜色变深 */
+        }
     </style>
 </head>
 <body>
@@ -149,13 +165,21 @@
 
     <section id="post-list">
         <h2>帖子列表</h2>
-
         <c:forEach items="${posts}" var="post">
             <div class='post'>
                 <h3>${post.title}</h3>
                 <p>发布者: ${post.author}</p>
                 <p>内容: ${post.content}</p>
                 <p>发布时间: <fmt:formatDate value="${post.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                <p>点赞数: ${post.likes}</p>
+                <!-- 点赞表单 -->
+                <form id="likeForm-${post.id}" action="/demo1_war_exploded/LikePostServlet" method="post" style="display: none;">
+                    <input type="hidden" name="postId" value="${post.id}">
+                </form>
+                <button class="like-button" onclick="document.getElementById('likeForm-${post.id}').submit();"></button>
+
+                <!-- 查看评论链接 -->
+                <a href="/demo1_war_exploded/ViewCommentsServlet?postId=${post.id}">查看评论</a>
             </div>
         </c:forEach>
     </section>

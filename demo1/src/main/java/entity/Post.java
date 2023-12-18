@@ -11,6 +11,9 @@ public class Post {
 
 
 
+    private int likes;
+
+
     public Post(String title, String content, String author) {
         this.title = title;
         this.content = content;
@@ -68,7 +71,13 @@ public class Post {
     public void setDatePosted(Date datePosted) {
         this.datePosted = datePosted;
     }
+    public int getLikes() {
+        return likes;
+    }
 
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
 
 }
 
