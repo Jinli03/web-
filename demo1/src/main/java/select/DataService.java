@@ -194,5 +194,13 @@ public class DataService {
         sqlSession.close();
         return dish;
     }
+    //师生检索食堂信息
+    public List<Dish> selectDishesByCanteenName(String  name){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class); // Assuming DishMapper is the correct mapper interface
+        List<Dish> dishes = mapper.selectDishesByCanteenName(name);
+        sqlSession.close();
+        return dishes;
+    }
 }
 

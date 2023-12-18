@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ccbus
-  Date: 2023/12/11
-  Time: 20:45
+  Date: 2023/12/14
+  Time: 17:19
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="select.NewsService" %>
@@ -66,9 +66,13 @@
     <nav>
         <ul>
 
-            <li><a href="teacher_student/community.jsp">交流社区</a></li>
+            <li><a href="/demo1_war_exploded/GetAllPostsServlet">交流社区</a></li>
             <li><a href="/demo1_war_exploded/SelectAllDishesByServlet">菜品检索</a></li>
+            <li><a href="/demo1_war_exploded/SelectAllCanteensByServlet">食堂检索</a></li>
+            <li><a href="complaint_form.jsp">投诉系统</a></li>
+            <li><a href="real_time_messaging.jsp">实时消息系统</a></li>
             <li><a href="profile.jsp">个人中心</a></li>
+
         </ul>
     </nav>
 </header>
@@ -96,3 +100,4 @@
 </footer>
 </body>
 </html>
+

@@ -82,7 +82,7 @@
     <select id="selectAllForumTitles" resultType="java.lang.String">
         SELECT DISTINCT title FROM forum;
     </select>
-<!--    师生对食堂信息的检索-->
+<!--    师生对菜品信息的检索-->
     <select id="selectAllDishesByConditions" resultType="entity.Dish">
         SELECT id, kind, picture, price, grade, canteen FROM dishes
         <trim prefix="WHERE" prefixOverrides="AND">
@@ -105,6 +105,11 @@
     </insert>
     <select id="selectDishById" resultType="entity.Dish">
         select * from dishes where id = #{dish};
+    </select>
+<!--    师生对菜品信息的检索-->
+    <select id="selectDishesByCanteenName" resultType="entity.Dish">
+        SELECT id, kind, picture, price, grade, canteen FROM dishes
+        WHERE canteen = #{name};
     </select>
 
 </mapper>

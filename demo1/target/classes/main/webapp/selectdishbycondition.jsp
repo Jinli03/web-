@@ -31,7 +31,14 @@
             <td>${item.grade}</td>
             <td>${item.picture}</td>
             <td><a href="/demo1_war_exploded/SelectDishByIdServlet?id=${item.id}">评价</a>
+<<<<<<< HEAD
                 <a href="/demo1_war_exploded/SelectDishCommentByIdServlet?id=${item.id}">查看评价信息</a></td>
+=======
+                <a href="/demo1_war_exploded/SelectDishCommentByIdServlet?id=${item.id}">查看评价信息</a>
+                <a href="complaint_form.jsp">提交投诉</a></td>
+
+
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9
         </tr>
     </c:forEach>
 </table>

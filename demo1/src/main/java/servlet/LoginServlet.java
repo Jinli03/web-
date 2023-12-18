@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         user = dao.tslogin(loginuser);
         if(user != null){
             req.setAttribute("username",username);
-            req.getRequestDispatcher("teacher_student/tea_stu_admin.jsp").forward(req,resp);
+            req.getRequestDispatcher("/tea_stu_admin.jsp").forward(req,resp);
         }
     }
 

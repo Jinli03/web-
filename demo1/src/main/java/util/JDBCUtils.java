@@ -72,6 +72,9 @@ public class JDBCUtils {
             }
         }
     }
+
+    public static void closeStatement(PreparedStatement preparedStatement) {
+    }
 }
 
 
