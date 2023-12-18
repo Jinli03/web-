@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜品管理</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .buttons-container {
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+            padding: 15px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="buttons-container">
+        <form action=" http://localhost:8080/demo1_war_exploded/SelectAllDishesServlet" method="post">
+            <button  >查看所有菜品</button>
+        </form>
+        <br>
+        <button><a href="addDish.html">增加菜品</a></button>
+        <br>
+        <button ><a href="UpdateDish.html">更新菜品</a></button>
+        <br>
+        <button ><a href="SelectDishesByid.jsp">查看单个菜品</a></button>
+        <br>
+        <button ><a href="DeleteDish.html">删除菜品</a></button>
+
+
+    </div>
+
+
+
+<!-- 按钮对应的 JavaScript 函数可以在这里添加 -->
+<script>
+    function viewAllDishes() {
+        // 处理查看所有菜品的逻辑
+        alert("查看所有菜品");
+    }
+
+    function addDish() {
+        // 处理增加菜品的逻辑
+        alert("增加菜品");
+    }
+
+    function viewSingleDish() {
+        // 处理查看单个菜品的逻辑
+        alert("查看单个菜品");
+    }
+
+    function deleteDish() {
+        // 处理删除菜品的逻辑
+        alert("删除菜品");
+    }
+</script>
+</body>
+</html>

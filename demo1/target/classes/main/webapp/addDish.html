@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菜品信息输入</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <script>
+        function showSuccessMessage() {
+            alert("已成功添加！");
+        }
+    </script>
+</head>
+<body>
+
+<form action="http://localhost:8080/demo1_war_exploded/addDishServlet" method="post">
+    <label for="imageName">图片名：</label>
+    <input type="text" id="imageName" name="imageName" required>
+
+    <label for="dishName">菜名：</label>
+    <input type="text" id="dishName" name="dishName" required>
+
+    <label for="cuisine">菜系：</label>
+    <input type="text" id="cuisine" name="cuisine" required>
+
+    <label for="price">价格：</label>
+    <input type="number" id="price" name="price" required>
+
+    <label for="rating">评分：</label>
+    <input type="number" id="rating" name="rating" step="0.1" required>
+
+    <label for="canteen">食堂供应：</label>
+    <input type="text" id="canteen" name="canteen" required>
+
+    <button onclick="showSuccessMessage()" type="submit">提交</button>
+</form>
+
+</body>
+</html>
