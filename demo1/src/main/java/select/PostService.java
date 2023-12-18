@@ -8,10 +8,7 @@ import java.util.List;
 public class PostService {
     private PostDao postDao = new PostDao();
 
-    public Post getPostById(int id) {
-        // 调用DAO层的getPostById方法
-        return postDao.getPostById(id);
-    }
+
 
     public List<Post> getAllPosts() {
         // 调用DAO层的getAllPosts方法

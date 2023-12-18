@@ -42,38 +42,7 @@ public class PostDao {
         }
     }
 
-    public Post getPostById(int id) {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        Post post = null;
 
-        try {
-            connection = JDBCUtils.getConnection();
-            String sql = "SELECT * FROM posts WHERE id = ?";
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-
-            resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                String title = resultSet.getString("title");
-                String content = resultSet.getString("content");
-                String author = resultSet.getString("author");
-                Timestamp datePosted = resultSet.getTimestamp("datePosted");
-
-                post = new Post(id, title, content, author);
-                post.setDatePosted(datePosted);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            JDBCUtils.closeResultSet(resultSet);
-            //JDBCUtils.closeStatement(preparedStatement);
-            JDBCUtils.closeConnection(connection);
-        }
-        return post;
-    }
     public List<Post> getAllPosts() {
         List<Post> posts = new ArrayList<>();
         Connection connection = null;

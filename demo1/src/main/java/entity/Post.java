@@ -24,20 +24,11 @@ public class Post {
         this.author = author;
         this.datePosted = datePosted;
     }
-    public Post(int id, String title, String content, String author, Date datePosted) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.author = author;
-        this.datePosted = datePosted;
-    }
-
 
     public Post() {
 
     }
 
-    // Getter和Setter方法
     public int getId() {
         return id;
     }
@@ -78,6 +69,6 @@ public class Post {
         this.datePosted = datePosted;
     }
 
-    // 可以添加其他方法，如格式化输出等
+
 }
 
