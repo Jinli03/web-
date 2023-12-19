@@ -108,7 +108,7 @@ public class PostDao {
                 String content = resultSet.getString("content");
                 String author = resultSet.getString("author");
                 Timestamp datePosted = resultSet.getTimestamp("datePosted");
-
+                int likes=resultSet.getInt("likes");
                 // 创建Post对象并添加到列表中
                 Post post = new Post();
                 post.setId(id);
@@ -116,6 +116,7 @@ public class PostDao {
                 post.setContent(content);
                 post.setAuthor(author);
                 post.setDatePosted(new Date(datePosted.getTime())); // 转换Timestamp为Date
+                post.setLikes(likes);
                 searchResults.add(post);
             }
         } catch (SQLException e) {
