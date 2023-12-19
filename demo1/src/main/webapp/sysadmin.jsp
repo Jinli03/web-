@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>系统管理员</title>
 <%--    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>--%>
 <%--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>--%>
