@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: ccbus
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
+<<<<<<< HEAD:demo1/target/classes/main/webapp/teacher_student/community.jsp
   Date: 2023/12/13
   Time: 23:35
   To change this template use File | Settings | File Templates.
@@ -245,19 +245,19 @@
             background-color: #ff7788; /* 鼠标点击时的背景颜色变深 */
         }
     </style>
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/classes/main/webapp/community.jsp
 </head>
 <body>
 <header>
     <nav>
         <ul>
             <li><a href="tea_stu_admin.jsp">师生专属首页</a></li>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
+<<<<<<< HEAD:demo1/target/classes/main/webapp/teacher_student/community.jsp
             <li><a href="/SelectAllDishesByServlet">菜品检索</a></li>
             <li><a href="profile.jsp">个人中心</a></li>
 =======
 
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/classes/main/webapp/community.jsp
         </ul>
     </nav>
 </header>
@@ -265,11 +265,11 @@
 <main>
     <section id="post-search">
         <h2>搜索帖子</h2>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
+<<<<<<< HEAD:demo1/target/classes/main/webapp/teacher_student/community.jsp
         <form action="/SearchPostsServlet" method="get">
 =======
         <form action="/demo1_war_exploded/SearchPostServlet" method="get">
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/classes/main/webapp/community.jsp
             <input type="text" name="searchQuery" placeholder="按标题或用户名搜索">
             <button type="submit">搜索</button>
         </form>
@@ -277,7 +277,7 @@
 
     <section id="create-post">
         <h2>发表新帖</h2>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
+<<<<<<< HEAD:demo1/target/classes/main/webapp/teacher_student/community.jsp
         <form action="/CreatePostServlet" method="post" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
@@ -287,14 +287,14 @@
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
 <%--            <input type="file" name="image">--%>
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/classes/main/webapp/community.jsp
             <button type="submit">发布</button>
         </form>
     </section>
 
     <section id="post-list">
         <h2>帖子列表</h2>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
+<<<<<<< HEAD:demo1/target/classes/main/webapp/teacher_student/community.jsp
         <%-- 这里可以添加Java代码来动态显示帖子列表 --%>
         <%
             // 示例Java代码
@@ -330,16 +330,16 @@
     </section>
 
 
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/classes/main/webapp/community.jsp
 </main>
 
 <footer>
     <p>版权所有 &copy; 学校食堂点评系统</p>
 </footer>
 </body>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
+<<<<<<< HEAD:demo1/target/classes/main/webapp/teacher_student/community.jsp
 </html>
 =======
 </html>
 
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+>>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/classes/main/webapp/community.jsp

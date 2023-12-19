@@ -13,7 +13,7 @@
 
 <html>
 <head>
-<%--    欢迎你${username}师生--%>
+    <%--    欢迎你${username}师生--%>
     <title>交流社区 - 学校食堂点评系统</title>
     <style>
         body {
@@ -158,7 +158,7 @@
         <form action="/demo1_war_exploded/CreatePostServlet" method="post" >
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
-<%--            <input type="file" name="image">--%>
+            <%--            <input type="file" name="image">--%>
             <button type="submit">发布</button>
         </form>
     </section>
