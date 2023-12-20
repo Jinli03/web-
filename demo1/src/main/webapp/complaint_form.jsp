@@ -59,16 +59,8 @@
 </header>
 
 <main>
-    <h2>提交投诉</h2>
-    <form action="/SubmitComplaintServlet" method="post">
-        <label for="complaintTitle">投诉标题:</label>
-        <input type="text" id="complaintTitle" name="title" required><br>
+    <h2>提交投诉请去《菜品检索》或是《食堂检索》内部</h2>
 
-        <label for="complaintDetails">详细描述:</label>
-        <textarea id="complaintDetails" name="details" required></textarea><br>
-
-        <button type="submit">提交投诉</button>
-    </form>
 </main>
 
 <footer>
