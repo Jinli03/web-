@@ -72,6 +72,7 @@
             <li><a href="complaint_form.jsp">投诉系统</a></li>
             <li><a href="real_time_messaging.jsp">实时消息系统</a></li>
             <li><a href="profile.jsp">个人中心</a></li>
+            <li><a href="vote.html">投票</a></li>
 
         </ul>
     </nav>
