@@ -19,7 +19,7 @@
     <div>
         <h2>${post.title}</h2>
         <p>${post.content}</p>
-        <p>By: ${post.author}</p>
+        <p>By: <a href="UserPostsServlet?username=${post.author}">${post.author}</a></p>
         <p>On: ${post.datePosted}</p>
         <p>点赞数: ${post.likes}</p>
         <img src="${pageContext.request.contextPath}/GetImageServlet?postId=${post.id}" alt="Post Image">
