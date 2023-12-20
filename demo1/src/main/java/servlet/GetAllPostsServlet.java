@@ -2,22 +2,41 @@ package servlet;
 
 import dao.PostDao;
 import entity.Post;
+import entity.PostComment;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import select.PostCommentService;
 import select.PostService;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "GetAllPostsServlet", value = "/GetAllPostsServlet")
 public class GetAllPostsServlet extends HttpServlet {
     private PostService postService = new PostService();
+    private PostCommentService postCommentService=new PostCommentService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        List<Post> posts = postService.getAllPosts();
+        String sortBy = request.getParameter("sortBy");
+        List<Post> posts = postService.new_getAllPosts(sortBy);
         request.setAttribute("posts", posts);
+        // 创建一个映射，将每个帖子的ID映射到其评论列表
+        Map<Integer, List<PostComment>> commentsMap = new HashMap<>();
+
+        // 对于每个帖子，获取它的评论并放入映射中
+        for (Post post : posts) {
+            List<PostComment> comments = postCommentService.getPostComments(post.getId());
+            commentsMap.put(post.getId(), comments);
+        }
+
+        // 将评论映射设置到请求属性中
+        request.setAttribute("commentsMap", commentsMap);
+
+
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("community.jsp");
         dispatcher.forward(request, response);
 

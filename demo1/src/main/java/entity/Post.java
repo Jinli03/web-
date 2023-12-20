@@ -9,10 +9,8 @@ public class Post {
     private String author; // 发帖者
     private Date datePosted; // 发帖日期
 
-
-
     private int likes;
-
+    private byte[] image; // 用于存储图片数据
 
     public Post(String title, String content, String author) {
         this.title = title;
@@ -77,6 +75,13 @@ public class Post {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
 }
