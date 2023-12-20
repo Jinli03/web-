@@ -22,7 +22,7 @@ public class Edit_cafeteria<BasicDataSource> extends HttpServlet {
         Cafeteria cafeteriaInfo = cafeteriaDAO.getCafeteriaInfo();
 
         request.setAttribute("cafeteria", cafeteriaInfo); // 将信息添加到请求属性中
-        request.getRequestDispatcher("index.jsp").forward(request, response); // 转发到JSP页面
+        request.getRequestDispatcher("Cafeteria.jsp").forward(request, response); // 转发到JSP页面
     }
 
 
