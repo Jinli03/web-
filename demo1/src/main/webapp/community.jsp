@@ -174,7 +174,7 @@
         <c:forEach items="${posts}" var="post">
             <div class='post'>
                 <h3>${post.title}</h3>
-                <p>发布者: ${post.author}</p>
+                <p>发布者: <a href="UserPostsServlet?username=${post.author}">${post.author}</a></p>
                 <p>内容: ${post.content}</p>
 
                     <img src="${pageContext.request.contextPath}/GetImageServlet?postId=${post.id}" alt="Post Image">

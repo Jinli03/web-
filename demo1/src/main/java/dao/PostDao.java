@@ -207,4 +207,32 @@ public class PostDao {
         }
         return posts;
     }
+
+    public List<Post> getPostsByUser(String username) {
+        List<Post> posts = new ArrayList<>();
+        String sql = "SELECT * FROM posts WHERE author = ?";
+        try (Connection connection = JDBCUtils.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, username);
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String title = resultSet.getString("title");
+                    String content = resultSet.getString("content");
+                    String author = resultSet.getString("author");
+                    Timestamp timestamp = resultSet.getTimestamp("datePosted");
+                    int likes=resultSet.getInt("likes");
+                    Date datePosted = (timestamp != null) ? new Date(timestamp.getTime()) : null;
+                    Post post = new Post(id, title, content, author);
+                    post.setDatePosted(datePosted);
+                    post.setLikes(likes);
+                    posts.add(post);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return posts;
+    }
 }

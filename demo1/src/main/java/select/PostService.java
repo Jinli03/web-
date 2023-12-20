@@ -29,4 +29,7 @@ public class PostService {
     public List<Post> new_getAllPosts(String sortBy) {
         return postDao.getAllPostsSorted(sortBy);
     }
+    public List<Post> getPostsByUser(String username) {
+        return postDao.getPostsByUser(username);
+    }
 }
