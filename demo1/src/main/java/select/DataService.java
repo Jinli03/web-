@@ -197,10 +197,25 @@ public class DataService {
     //师生检索食堂信息
     public List<Dish> selectDishesByCanteenName(String  name){
         SqlSession sqlSession = factory.openSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class); // Assuming DishMapper is the correct mapper interface
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<Dish> dishes = mapper.selectDishesByCanteenName(name);
         sqlSession.close();
         return dishes;
+    }
+    //师生活跃等级
+    public int  selectTsTimes(String username){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int times = mapper.selectTsTimes(username);
+        return times;
+    }
+    public void updateTsTimes(String username, int times){
+        SqlSession sqlSession = factory.openSession();
+        System.out.println(times);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateTsTimes(username,times);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }
 
