@@ -69,7 +69,7 @@
             <li><a href="/demo1_war_exploded/GetAllPostsServlet">交流社区</a></li>
             <li><a href="/demo1_war_exploded/SelectAllDishesByServlet">菜品检索</a></li>
             <li><a href="/demo1_war_exploded/SelectAllCanteensByServlet">食堂检索</a></li>
-            <li><a href="complaint_form.jsp">投诉系统</a></li>
+            <li><a href="/demo1_war_exploded/ComplaintFormServlet">投诉系统</a></li>
             <li><a href="real_time_messaging.jsp">实时消息系统</a></li>
             <li><a href="profile.jsp">个人中心</a></li>
 
