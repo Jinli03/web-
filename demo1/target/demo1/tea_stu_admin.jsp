@@ -89,7 +89,7 @@
             // 导入包含getLatestNews方法的类（如果需要）
             // out是JSP内置对象，用于输出内容到页面
             String news = NewsService.getLatestNews(); // 调用方法获取最新消息
-            out.println("<p>" + news + "</p>"); // 将消息输出到页面
+            System.out.println("<p>" + news + "</p>"); // 将消息输出到页面
         %>
 
     </section>
