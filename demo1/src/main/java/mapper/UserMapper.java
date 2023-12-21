@@ -10,6 +10,12 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface UserMapper {
+    //投诉消息处理
+    List<Complaint> selectAllComplaints();
+    void addReply(Complaint complaint);
+
+
+
     //菜品增删改
     List<Dish> selectAllDishes();
     void addDishes(Dish dish);

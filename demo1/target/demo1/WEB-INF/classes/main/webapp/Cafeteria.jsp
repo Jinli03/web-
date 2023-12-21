@@ -44,7 +44,9 @@
         </c:choose>
     </div>
     <h1>食堂管理系统</h1>
-    <div id="notifications">未读消息: <span>3</span></div>
+    <div id="notifications">
+        <p>未读投诉信息: ${count}</p>
+    </div>
 </header>
 <nav>
     <ul>
@@ -53,7 +55,7 @@
         <li><a href="#reviews">食堂评价处理</a></li>
         <li><a href="ads.html#announce">活动公告</a></li>
         <li><a href="vote.html">发布投票调查</a></li>
-        <li><a href="#complaints">投诉信息处理</a></li>
+        <li><a href="http://localhost:8080/demo1_war_exploded/RecomplaintServlet">投诉信息处理</a></li>
         <li><a href="#recommendations">最新推荐菜品</a></li>
     </ul>
 </nav>

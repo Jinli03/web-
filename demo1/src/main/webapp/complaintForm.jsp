@@ -58,19 +58,42 @@
         }
 
         button[type="submit"]:hover {
-            background-color: darkorchid;
+            background-color: #cc3732;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            background-color: rebeccapurple;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 <form action="/demo1_war_exploded/SubmitComplaintServlet" method="post">
-    <h2>提交投诉</h2>
+    <h1 style="text-align: center">提交投诉</h1>
     <input type="text" name="title" placeholder="投诉标题" required>
     <textarea name="details" placeholder="详细描述" required></textarea>
     <input type="hidden" name="canteen" value="${canteen}">
     <input type="hidden" name="dish" value="${dish}">
     <button type="submit">提交投诉</button>
 </form>
+
+
+<h2>回复消息</h2>
+<c:forEach var="complaint" items="${complaints}">
+    <c:if test="${judge.username eq complaint.username}">
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+            <h3>${complaint.title}</h3>
+            <p>回复人: ${complaint.responder}</p>
+            <p>回复内容: ${complaint.reply}</p>
+        </div>
+    </c:if>
+</c:forEach>
 
 </body>
 </html>
