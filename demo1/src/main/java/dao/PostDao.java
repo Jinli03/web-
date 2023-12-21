@@ -235,4 +235,42 @@ public class PostDao {
         }
         return posts;
     }
+
+
+    public List<Post> getHotTopics() {
+        List<Post> hotTopics = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = JDBCUtils.getConnection();
+            String sql = "SELECT * FROM posts ORDER BY likes DESC LIMIT 1";
+
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Post post = new Post();
+                post.setId(resultSet.getInt("id"));
+                post.setTitle(resultSet.getString("title"));
+                post.setContent(resultSet.getString("content"));
+                post.setLikes(resultSet.getInt("likes")); // 假设 posts 表有一个名为 likes 的字段
+                // 如果有其他字段，例如 author 或 datePosted，也可以在这里添加
+                // post.setAuthor(resultSet.getString("author"));
+                // post.setDatePosted(resultSet.getDate("datePosted"));
+                post.setImage(resultSet.getBytes("image")); // 假设您有一个 image 字段
+                hotTopics.add(post);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) try { resultSet.close(); } catch (SQLException e) { e.printStackTrace(); }
+            if (preparedStatement != null) try { preparedStatement.close(); } catch (SQLException e) { e.printStackTrace(); }
+            if (connection != null) try { connection.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
+
+        return hotTopics;
+    }
+
 }

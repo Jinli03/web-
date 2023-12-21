@@ -3,6 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
+    <!--   投诉-->
+    <select id="selectAllComplaints" resultType="entity.Complaint">
+        select id,title,details,username,canteen,reply,responder,replied from complaints;
+    </select>
+    <update id="addReply" >
+        UPDATE complaints
+        SET reply=#{reply},responder=#{responder},replied=#{replied}
+        WHERE title = #{title};
+    </update>
+
+
     <!--    菜品-->
     <select id="selectAllDishes" resultType="entity.Dish">
         select id,kind,picture,price,grade,canteen from dishes;

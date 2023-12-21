@@ -6,8 +6,11 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import select.ComplaintService;
+import select.DataService;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 @WebServlet(name = "SubmitComplaintServlet", value = "/SubmitComplaintServlet")
 public class SubmitComplaintServlet extends HttpServlet {
@@ -30,6 +33,14 @@ public class SubmitComplaintServlet extends HttpServlet {
         complaint.setCanteen(canteen);
         complaint.setDish(dish);
         complaintservice.addComplaint(complaint);
-        response.sendRedirect("complaintForm.jsp");
+
+
+        //获取投诉回复消息
+        ComplaintService cps=new ComplaintService();
+        List<Complaint> c=cps.selectAllComplaints();
+        request.setAttribute("complaints",c);
+
+        request.getRequestDispatcher("complaintForm.jsp").forward(request, response);
+
     }
 }

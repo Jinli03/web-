@@ -18,7 +18,7 @@ public class ComplaintDao {
 
         try {
             connection = JDBCUtils.getConnection();
-            String sql = "INSERT INTO complaints (title, details, username, canteen, dish) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO complaints ( title, details, username ) VALUES ( ?, ?, ? )";
             preparedStatement = connection.prepareStatement(sql);
 
             System.out.println("Executing SQL: " + sql); // 调试语句
@@ -26,8 +26,7 @@ public class ComplaintDao {
             preparedStatement.setString(1, complaint.getTitle());
             preparedStatement.setString(2, complaint.getDetails());
             preparedStatement.setString(3, complaint.getUsername());
-            preparedStatement.setString(4, complaint.getCanteen());
-            preparedStatement.setString(5, complaint.getDish());
+
 
 
             int rowsAffected = preparedStatement.executeUpdate();

@@ -9,7 +9,25 @@ public class Complaint {
     private String canteen; // 食堂
     private String dish; // 菜品
     private String responder; // 回复人
-    private String response; // 回复内容
+    private String reply; // 回复内容
+
+    private int replied;
+
+    public Complaint() {
+    }
+
+    public Complaint(int id, String title, String details, String username, String canteen, String dish, String responder, String reply, boolean replied) {
+        this.id = id;
+        this.title = title;
+        this.details = details;
+        this.username = username;
+        this.canteen = canteen;
+        this.dish = dish;
+        this.responder = responder;
+        this.reply = reply;
+        this.replied = 0;
+    }
+
     public int getId() {
         return id;
     }
@@ -66,13 +84,32 @@ public class Complaint {
         this.responder = responder;
     }
 
-    public String getResponse() {
-        return response;
+    public String getReply() {
+        return reply;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 
 
+    /**
+     * 获取
+     * @return replied
+     */
+    public int getReplied() {
+        return replied;
+    }
+
+    /**
+     * 设置
+     * @param replied
+     */
+    public void setReplied(int replied) {
+        this.replied = replied;
+    }
+
+    public String toString() {
+        return "Complaint{id = " + id + ", title = " + title + ", details = " + details + ", username = " + username + ", canteen = " + canteen + ", dish = " + dish + ", responder = " + responder + ", reply = " + reply + ", replied = " + replied + "}";
+    }
 }
