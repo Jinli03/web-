@@ -3,6 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.UserMapper">
+    <!--   投诉-->
+    <select id="selectAllComplaints" resultType="entity.Complaint">
+        select id,title,details,username,canteen,reply,responder,replied from complaints;
+    </select>
+    <update id="addReply" >
+        UPDATE complaints
+        SET reply=#{reply},responder=#{responder},replied=#{replied}
+        WHERE title = #{title};
+    </update>
+
+
     <!--    菜品-->
     <select id="selectAllDishes" resultType="entity.Dish">
         select id,kind,picture,price,grade,canteen from dishes;
@@ -111,5 +122,27 @@
         SELECT id, kind, picture, price, grade, canteen FROM dishes
         WHERE canteen = #{name};
     </select>
+    <!--    师生活跃等级-->
+    <select id="selectTsTimes" resultType="java.lang.Integer">
+        select times from ts
+        where username = #{username};
+    </select>
+    <update id="updateTsTimes">
+        update ts
+        set times = #{times}
+        where username = #{username};
+    </update>
+    <select id="selectAllTsuserAndTimes" resultType="entity.Tsuser">
+        select username, times from ts
+        ORDER BY times DESC;
+    </select>
+    <select id="queryDishAvarageGradeById" resultType="java.lang.Float">
+        SELECT AVG(grade) AS average_grade FROM comment WHERE dish = #{dish};
+    </select>
+    <update id="updateDishAverageGradeById">
+        update dishes
+        set grade = #{grade}
+        where id = #{id};
+    </update>
 
 </mapper>

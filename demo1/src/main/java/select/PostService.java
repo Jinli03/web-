@@ -22,4 +22,17 @@ public class PostService {
     public List<Post> searchPosts(String query) {
         return postDao.searchPosts(query);
     }
+
+    public Post getPostById(int postId) {
+        return postDao.getPostById(postId);
+    }
+    public List<Post> new_getAllPosts(String sortBy) {
+        return postDao.getAllPostsSorted(sortBy);
+    }
+    public List<Post> getPostsByUser(String username) {
+        return postDao.getPostsByUser(username);
+    }
+
+
+    public List<Post> getHotTopics(){return postDao.getHotTopics();}
 }

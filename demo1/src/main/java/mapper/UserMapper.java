@@ -5,10 +5,17 @@ import entity.Comment;
 import entity.Cuser;
 import entity.Forum;
 import entity.*;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface UserMapper {
+    //投诉消息处理
+    List<Complaint> selectAllComplaints();
+    void addReply(Complaint complaint);
+
+
+
     //菜品增删改
     List<Dish> selectAllDishes();
     void addDishes(Dish dish);
@@ -41,4 +48,10 @@ public interface UserMapper {
     Dish selectDishById(String dish);
     //师生对食堂信息的检索
     List<Dish> selectDishesByCanteenName(String name);
+    //师生活跃等级
+    int selectTsTimes(String username);
+    void updateTsTimes(@Param("username") String username, @Param("times") int times);
+    List<Tsuser> selectAllTsuserAndTimes();
+    float queryDishAvarageGradeById(String dish);
+    void updateDishAverageGradeById(@Param("id") String id, @Param("grade") int grade);
 }

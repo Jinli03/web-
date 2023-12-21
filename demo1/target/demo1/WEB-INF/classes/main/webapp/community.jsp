@@ -1,118 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
   User: ccbus
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
-  Date: 2023/12/13
-  Time: 23:35
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>交流社区 - 学校食堂点评系统</title>
-   <style>
-       body {
-           font-family: Arial, sans-serif;
-           margin: 0;
-           padding: 0;
-           background-color: #f4f4f4;
-           color: #333;
-       }
-
-       header {
-           background-color: #333;
-           color: white;
-           padding: 10px 0;
-       }
-
-       nav ul {
-           list-style-type: none;
-           padding: 0;
-           overflow: hidden;
-           margin: 0;
-       }
-
-       nav ul li {
-           float: left;
-       }
-
-       nav ul li a {
-           display: block;
-           color: white;
-           text-align: center;
-           padding: 14px 16px;
-           text-decoration: none;
-       }
-
-       nav ul li a:hover {
-           background-color: #555;
-       }
-
-       main {
-           margin: 15px;
-       }
-
-       section {
-           background-color: white;
-           padding: 10px;
-           margin-bottom: 15px;
-           border-radius: 5px;
-           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-       }
-
-       h2 {
-           color: #333;
-       }
-
-       form {
-           margin-top: 10px;
-       }
-
-       form input[type="text"],
-       form textarea,
-       form input[type="file"] {
-           width: 100%;
-           padding: 8px;
-           margin: 8px 0;
-           display: inline-block;
-           border: 1px solid #ccc;
-           border-radius: 4px;
-           box-sizing: border-box;
-       }
-
-       form button {
-           width: 100%;
-           background-color: orange;
-           color: white;
-           padding: 14px 20px;
-           margin: 8px 0;
-           border: none;
-           border-radius: 4px;
-           cursor: pointer;
-       }
-
-       form button:hover {
-           background-color:royalblue;
-       }
-
-       footer {
-           background-color: #333;
-           color: white;
-           text-align: center;
-           padding: 10px;
-           position: relative;
-           bottom: 0;
-           width: 100%;
-       }
-
-       .post {
-           border-bottom: 1px solid #eee;
-           padding: 15px;
-           margin-bottom: 15px;
-       }
-
-   </style>
-=======
   Date: 2023/12/14
   Time: 17:19
   To change this template use File | Settings | File Templates.
@@ -121,11 +9,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
 <head>
-<%--    欢迎你${username}师生--%>
+    <%--    欢迎你${username}师生--%>
     <title>交流社区 - 学校食堂点评系统</title>
     <style>
         body {
@@ -245,19 +133,13 @@
             background-color: #ff7788; /* 鼠标点击时的背景颜色变深 */
         }
     </style>
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
 </head>
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="tea_stu_admin.jsp">师生专属首页</a></li>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
-            <li><a href="/SelectAllDishesByServlet">菜品检索</a></li>
-            <li><a href="profile.jsp">个人中心</a></li>
-=======
+            <li><a href="/demo1_war_exploded/LoadTeaStuAdminPageServlet">师生专属首页</a></li>
 
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
         </ul>
     </nav>
 </header>
@@ -265,11 +147,7 @@
 <main>
     <section id="post-search">
         <h2>搜索帖子</h2>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
-        <form action="/SearchPostsServlet" method="get">
-=======
         <form action="/demo1_war_exploded/SearchPostServlet" method="get">
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
             <input type="text" name="searchQuery" placeholder="按标题或用户名搜索">
             <button type="submit">搜索</button>
         </form>
@@ -277,44 +155,31 @@
 
     <section id="create-post">
         <h2>发表新帖</h2>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
-        <form action="/CreatePostServlet" method="post" enctype="multipart/form-data">
+        <form action="/demo1_war_exploded/CreatePostServlet" method="post" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
-            <input type="file" name="image">
-=======
-        <form action="/demo1_war_exploded/CreatePostServlet" method="post" >
-            <input type="text" name="title" placeholder="标题" required>
-            <textarea name="content" placeholder="内容" required></textarea>
-<%--            <input type="file" name="image">--%>
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
+            <input type="file" name="image" accept="image/*"> <!-- 允许用户选择图片文件 -->
             <button type="submit">发布</button>
         </form>
     </section>
 
+    <!-- 假设sortBy是当前的排序方式 -->
+    <c:set var="currentSort" value="${param.sortBy != null ? param.sortBy : 'time'}" />
     <section id="post-list">
+        <select onchange="location.href='?sortBy='+this.value">
+            <option value="time" ${currentSort == 'time' ? 'selected' : ''}>按时间排序</option>
+            <option value="heat" ${currentSort == 'heat' ? 'selected' : ''}>按热度排序</option>
+        </select>
         <h2>帖子列表</h2>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
-        <%-- 这里可以添加Java代码来动态显示帖子列表 --%>
-        <%
-            // 示例Java代码
-            // List<Post> posts = getPosts(); // 获取帖子列表
-            // for (Post post : posts) {
-            //     out.println("<div class='post'>");
-            //     out.println("<h3>" + post.getTitle() + "</h3>");
-            //     out.println("<p>发布者: " + post.getAuthor() + "</p>");
-            //     out.println("<p>发布时间: " + post.getTimestamp() + "</p>");
-            //     out.println("<p>点赞数: " + post.getLikes() + "</p>");
-            //     out.println("</div>");
-            // }
-        %>
-    </section>
-=======
         <c:forEach items="${posts}" var="post">
             <div class='post'>
                 <h3>${post.title}</h3>
-                <p>发布者: ${post.author}</p>
+                <p>发布者: <a href="UserPostsServlet?username=${post.author}">${post.author}</a></p>
                 <p>内容: ${post.content}</p>
+
+                    <img src="${pageContext.request.contextPath}/GetImageServlet?postId=${post.id}" alt="Post Image">
+
+
                 <p>发布时间: <fmt:formatDate value="${post.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
                 <p>点赞数: ${post.likes}</p>
                 <!-- 点赞表单 -->
@@ -322,24 +187,36 @@
                     <input type="hidden" name="postId" value="${post.id}">
                 </form>
                 <button class="like-button" onclick="document.getElementById('likeForm-${post.id}').submit();"></button>
+            </div>
+            <br>
+               评论区
+                <!-- 评论部分 -->
+                <section id="postcomments">
+                    <!-- 显示现有评论的列表 -->
+                    <c:forEach items="${commentsMap[post.id]}" var="postcomment">
+                        <div class="postcomment">
+                            <p>${postcomment.content}</p>
+                            <p>By: ${postcomment.username} - On: <fmt:formatDate value="${postcomment.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                        </div>
+                    </c:forEach>
 
-                <!-- 查看评论链接 -->
-                <a href="/demo1_war_exploded/ViewCommentsServlet?postId=${post.id}">查看评论</a>
+                    <!-- 添加新评论的表单 -->
+                    <form action="/demo1_war_exploded/AddPostCommentServlet" method="post">
+                        <input type="hidden" name="postId" value="${post.id}">
+                        <textarea name="content" required placeholder="Add a comment..."></textarea>
+                        <button type="submit">提交评论</button>
+                    </form>
+                </section>
             </div>
         </c:forEach>
     </section>
 
 
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp
 </main>
 
 <footer>
     <p>版权所有 &copy; 学校食堂点评系统</p>
 </footer>
 </body>
-<<<<<<< HEAD:demo1/target/demo1/WEB-INF/classes/main/webapp/teacher_student/community.jsp
-</html>
-=======
 </html>
 
->>>>>>> b6e8afb8fe0b16d025a128b1ff2eacca2ae2e8c9:demo1/target/demo1/WEB-INF/classes/main/webapp/community.jsp

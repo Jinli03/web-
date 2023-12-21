@@ -2,6 +2,7 @@ package servlet;
 
 import entity.Canteen;
 import entity.Dish;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -16,6 +17,8 @@ public class SelectDishByIdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
+        ServletContext servletContext = getServletContext();
+        servletContext.setAttribute("id", id);
         DataService dataService = new DataService();
         Dish dish = dataService.selectDishById(id);
         req.setAttribute("dish",dish);

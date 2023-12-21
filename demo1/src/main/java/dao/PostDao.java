@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import util.JDBCUtils;
 import entity.Post;
 
+import java.io.ByteArrayInputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ public class PostDao {
 
         try {
             connection = JDBCUtils.getConnection();
-            String sql = "INSERT INTO posts (title, content, author) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO posts (title, content, author,image) VALUES (?, ?, ?,?)";
             preparedStatement = connection.prepareStatement(sql);
 
             System.out.println("Executing SQL: " + sql); // 调试语句
@@ -24,7 +25,11 @@ public class PostDao {
             preparedStatement.setString(1, post.getTitle());
             preparedStatement.setString(2, post.getContent());
             preparedStatement.setString(3, post.getAuthor());
-
+            if (post.getImage() != null) {
+                preparedStatement.setBlob(4, new ByteArrayInputStream(post.getImage()));
+            } else {
+                preparedStatement.setBlob(4, (Blob) null);
+            }
             int rowsAffected = preparedStatement.executeUpdate();
             System.out.println("Rows affected: " + rowsAffected); // 调试语句
         } catch (SQLException e) {
@@ -108,7 +113,7 @@ public class PostDao {
                 String content = resultSet.getString("content");
                 String author = resultSet.getString("author");
                 Timestamp datePosted = resultSet.getTimestamp("datePosted");
-
+                int likes=resultSet.getInt("likes");
                 // 创建Post对象并添加到列表中
                 Post post = new Post();
                 post.setId(id);
@@ -116,6 +121,7 @@ public class PostDao {
                 post.setContent(content);
                 post.setAuthor(author);
                 post.setDatePosted(new Date(datePosted.getTime())); // 转换Timestamp为Date
+                post.setLikes(likes);
                 searchResults.add(post);
             }
         } catch (SQLException e) {
@@ -145,6 +151,126 @@ public class PostDao {
         } finally {
             JDBCUtils.closeConnection(connection);
         }
+    }
+    public Post getPostById(int postId) {
+        String sql = "SELECT * FROM posts WHERE id = ?";
+        Post post = null;
+        try (Connection connection = JDBCUtils.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setInt(1, postId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    post = new Post();
+                    post.setId(rs.getInt("id"));
+                    post.setTitle(rs.getString("title"));
+                    post.setContent(rs.getString("content"));
+                    post.setImage(rs.getBytes("image")); // 假设您有一个 image 字段
+                    // ... 设置其他的属性，比如作者等
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return post;
+    }
+    public List<Post> getAllPostsSorted(String sortBy) {
+        List<Post> posts = new ArrayList<>();
+        String sql = "SELECT * FROM posts ";
+        if ("heat".equals(sortBy)) {
+            sql += "ORDER BY likes DESC";
+        } else if("time".equals(sortBy)){
+            sql += "ORDER BY datePosted DESC";
+        }
+
+        try (Connection connection = JDBCUtils.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql);
+             ResultSet resultSet = pstmt.executeQuery()) {
+            while (resultSet.next()) {
+
+
+                              int id = resultSet.getInt("id");
+                         String title = resultSet.getString("title");
+                            String content = resultSet.getString("content");
+                         String author = resultSet.getString("author");
+                              Timestamp timestamp = resultSet.getTimestamp("datePosted");
+                        int likes=resultSet.getInt("likes");
+                        Date datePosted = (timestamp != null) ? new Date(timestamp.getTime()) : null;
+                            Post post = new Post(id, title, content, author);
+                             post.setDatePosted(datePosted);
+                           post.setLikes(likes);
+                              posts.add(post);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return posts;
+    }
+
+    public List<Post> getPostsByUser(String username) {
+        List<Post> posts = new ArrayList<>();
+        String sql = "SELECT * FROM posts WHERE author = ?";
+        try (Connection connection = JDBCUtils.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, username);
+            try (ResultSet resultSet = pstmt.executeQuery()) {
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String title = resultSet.getString("title");
+                    String content = resultSet.getString("content");
+                    String author = resultSet.getString("author");
+                    Timestamp timestamp = resultSet.getTimestamp("datePosted");
+                    int likes=resultSet.getInt("likes");
+                    Date datePosted = (timestamp != null) ? new Date(timestamp.getTime()) : null;
+                    Post post = new Post(id, title, content, author);
+                    post.setDatePosted(datePosted);
+                    post.setLikes(likes);
+                    posts.add(post);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return posts;
+    }
+
+
+    public List<Post> getHotTopics() {
+        List<Post> hotTopics = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = JDBCUtils.getConnection();
+            String sql = "SELECT * FROM posts ORDER BY likes DESC LIMIT 1";
+
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Post post = new Post();
+                post.setId(resultSet.getInt("id"));
+                post.setTitle(resultSet.getString("title"));
+                post.setContent(resultSet.getString("content"));
+                post.setLikes(resultSet.getInt("likes")); // 假设 posts 表有一个名为 likes 的字段
+                // 如果有其他字段，例如 author 或 datePosted，也可以在这里添加
+                // post.setAuthor(resultSet.getString("author"));
+                // post.setDatePosted(resultSet.getDate("datePosted"));
+                post.setImage(resultSet.getBytes("image")); // 假设您有一个 image 字段
+                hotTopics.add(post);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) try { resultSet.close(); } catch (SQLException e) { e.printStackTrace(); }
+            if (preparedStatement != null) try { preparedStatement.close(); } catch (SQLException e) { e.printStackTrace(); }
+            if (connection != null) try { connection.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
+
+        return hotTopics;
     }
 
 }

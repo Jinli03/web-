@@ -115,7 +115,7 @@
 <header>
   <nav>
     <ul>
-      <li><a href="tea_stu_admin.jsp">首页</a></li>
+      <li><a href="/demo1_war_exploded/LoadTeaStuAdminPageServlet">首页</a></li>
 
     </ul>
   </nav>

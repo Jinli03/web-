@@ -9,11 +9,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
 <head>
-<%--    欢迎你${username}师生--%>
+    <%--    欢迎你${username}师生--%>
     <title>交流社区 - 学校食堂点评系统</title>
     <style>
         body {
@@ -138,7 +138,7 @@
 <header>
     <nav>
         <ul>
-            <li><a href="tea_stu_admin.jsp">师生专属首页</a></li>
+            <li><a href="/demo1_war_exploded/LoadTeaStuAdminPageServlet">师生专属首页</a></li>
 
         </ul>
     </nav>
@@ -155,21 +155,31 @@
 
     <section id="create-post">
         <h2>发表新帖</h2>
-        <form action="/demo1_war_exploded/CreatePostServlet" method="post" >
+        <form action="/demo1_war_exploded/CreatePostServlet" method="post" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
-<%--            <input type="file" name="image">--%>
+            <input type="file" name="image" accept="image/*"> <!-- 允许用户选择图片文件 -->
             <button type="submit">发布</button>
         </form>
     </section>
 
+    <!-- 假设sortBy是当前的排序方式 -->
+    <c:set var="currentSort" value="${param.sortBy != null ? param.sortBy : 'time'}" />
     <section id="post-list">
+        <select onchange="location.href='?sortBy='+this.value">
+            <option value="time" ${currentSort == 'time' ? 'selected' : ''}>按时间排序</option>
+            <option value="heat" ${currentSort == 'heat' ? 'selected' : ''}>按热度排序</option>
+        </select>
         <h2>帖子列表</h2>
         <c:forEach items="${posts}" var="post">
             <div class='post'>
                 <h3>${post.title}</h3>
-                <p>发布者: ${post.author}</p>
+                <p>发布者: <a href="UserPostsServlet?username=${post.author}">${post.author}</a></p>
                 <p>内容: ${post.content}</p>
+
+                    <img src="${pageContext.request.contextPath}/GetImageServlet?postId=${post.id}" alt="Post Image">
+
+
                 <p>发布时间: <fmt:formatDate value="${post.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
                 <p>点赞数: ${post.likes}</p>
                 <!-- 点赞表单 -->
@@ -177,9 +187,26 @@
                     <input type="hidden" name="postId" value="${post.id}">
                 </form>
                 <button class="like-button" onclick="document.getElementById('likeForm-${post.id}').submit();"></button>
+            </div>
+            <br>
+               评论区
+                <!-- 评论部分 -->
+                <section id="postcomments">
+                    <!-- 显示现有评论的列表 -->
+                    <c:forEach items="${commentsMap[post.id]}" var="postcomment">
+                        <div class="postcomment">
+                            <p>${postcomment.content}</p>
+                            <p>By: ${postcomment.username} - On: <fmt:formatDate value="${postcomment.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                        </div>
+                    </c:forEach>
 
-                <!-- 查看评论链接 -->
-                <a href="/demo1_war_exploded/ViewCommentsServlet?postId=${post.id}">查看评论</a>
+                    <!-- 添加新评论的表单 -->
+                    <form action="/demo1_war_exploded/AddPostCommentServlet" method="post">
+                        <input type="hidden" name="postId" value="${post.id}">
+                        <textarea name="content" required placeholder="Add a comment..."></textarea>
+                        <button type="submit">提交评论</button>
+                    </form>
+                </section>
             </div>
         </c:forEach>
     </section>
