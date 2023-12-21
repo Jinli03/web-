@@ -124,4 +124,13 @@
         select username, times from ts
         ORDER BY times DESC;
     </select>
+    <select id="queryDishAvarageGradeById" resultType="java.lang.Float">
+        SELECT AVG(grade) AS average_grade FROM comment WHERE dish = #{dish};
+    </select>
+    <update id="updateDishAverageGradeById">
+        update dishes
+        set grade = #{grade}
+        where id = #{id};
+    </update>
+
 </mapper>

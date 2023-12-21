@@ -46,4 +46,6 @@ public interface UserMapper {
     int selectTsTimes(String username);
     void updateTsTimes(@Param("username") String username, @Param("times") int times);
     List<Tsuser> selectAllTsuserAndTimes();
+    float queryDishAvarageGradeById(String dish);
+    void updateDishAverageGradeById(@Param("id") String id, @Param("grade") int grade);
 }
