@@ -45,4 +45,5 @@ public interface UserMapper {
     //师生活跃等级
     int selectTsTimes(String username);
     void updateTsTimes(@Param("username") String username, @Param("times") int times);
+    List<Tsuser> selectAllTsuserAndTimes();
 }

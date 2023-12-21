@@ -217,5 +217,12 @@ public class DataService {
         sqlSession.commit();
         sqlSession.close();
     }
+    public List<Tsuser> selectAllTsuserAndTimes(){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Tsuser> tsuser = mapper.selectAllTsuserAndTimes();
+        sqlSession.close();
+        return tsuser;
+    }
 }
 

@@ -7,6 +7,8 @@
 --%>
 <%@ page import="select.NewsService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>学校食堂点评系统</title>
@@ -95,6 +97,13 @@
 
     </section>
 </main>
+<h2>用户热度排行榜：</h2>
+<c:forEach var="user" items="${tsuser}">
+    <div style="display: inline-block; margin-right: 20px;">
+        <p>用户名：${user.username}  热度：${user.times}</p>
+        <hr>
+    </div>
+</c:forEach>
 
 <footer>
     <p>版权所有 &copy; 学校食堂点评系统</p>

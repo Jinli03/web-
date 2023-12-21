@@ -120,4 +120,8 @@
         set times = #{times}
         where username = #{username};
     </update>
+    <select id="selectAllTsuserAndTimes" resultType="entity.Tsuser">
+        select username, times from ts
+        ORDER BY times DESC;
+    </select>
 </mapper>
