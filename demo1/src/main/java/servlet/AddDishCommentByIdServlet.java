@@ -45,6 +45,10 @@ public class AddDishCommentByIdServlet extends HttpServlet {
         comment.setCmessage(cmessage);
         comment.setGrade(grade);
         dataService.addDishCommentById(comment);
+        String id = (String) servletContext.getAttribute("id");
+        float avegrade = dataService.queryDishAvarageGradeById(id);
+        int roundedAveGrade = (int) avegrade;
+        dataService.updateDishAverageGradeById(id,roundedAveGrade);
         req.getRequestDispatcher("/SelectAllDishesByServlet").forward(req,resp);
     }
     @Override

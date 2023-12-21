@@ -197,10 +197,45 @@ public class DataService {
     //师生检索食堂信息
     public List<Dish> selectDishesByCanteenName(String  name){
         SqlSession sqlSession = factory.openSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class); // Assuming DishMapper is the correct mapper interface
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<Dish> dishes = mapper.selectDishesByCanteenName(name);
         sqlSession.close();
         return dishes;
+    }
+    //师生活跃等级
+    public int  selectTsTimes(String username){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int times = mapper.selectTsTimes(username);
+        return times;
+    }
+    public void updateTsTimes(String username, int times){
+        SqlSession sqlSession = factory.openSession();
+        System.out.println(times);
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateTsTimes(username,times);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    public List<Tsuser> selectAllTsuserAndTimes(){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Tsuser> tsuser = mapper.selectAllTsuserAndTimes();
+        sqlSession.close();
+        return tsuser;
+    }
+    public float queryDishAvarageGradeById(String id){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        float grade = mapper.queryDishAvarageGradeById(id);
+        return grade;
+    }
+    public void updateDishAverageGradeById(String dish, int grade){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateDishAverageGradeById(dish, grade);
+        sqlSession.commit();
+        sqlSession.close();
     }
 }
 
