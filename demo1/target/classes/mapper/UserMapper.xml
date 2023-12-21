@@ -111,5 +111,13 @@
         SELECT id, kind, picture, price, grade, canteen FROM dishes
         WHERE canteen = #{name};
     </select>
-
+    <!--    师生活跃等级-->
+    <select id="selectTsTimes" resultType="java.lang.Integer">
+        select times from ts;
+    </select>
+    <update id="updateTsTimes">
+        update ts
+        set times = #{times}
+        where username = #{username};
+    </update>
 </mapper>
