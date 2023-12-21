@@ -32,4 +32,7 @@ public class PostService {
     public List<Post> getPostsByUser(String username) {
         return postDao.getPostsByUser(username);
     }
+
+
+    public List<Post> getHotTopics(){return postDao.getHotTopics();}
 }

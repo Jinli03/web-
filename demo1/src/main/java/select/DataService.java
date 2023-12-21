@@ -220,5 +220,25 @@ public class DataService {
         sqlSession.commit();
         sqlSession.close();
     }
+    public List<Tsuser> selectAllTsuserAndTimes(){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Tsuser> tsuser = mapper.selectAllTsuserAndTimes();
+        sqlSession.close();
+        return tsuser;
+    }
+    public float queryDishAvarageGradeById(String id){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        float grade = mapper.queryDishAvarageGradeById(id);
+        return grade;
+    }
+    public void updateDishAverageGradeById(String dish, int grade){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.updateDishAverageGradeById(dish, grade);
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }
 
