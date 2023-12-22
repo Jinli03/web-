@@ -124,7 +124,7 @@
     </select>
     <!--    师生活跃等级-->
     <select id="selectTsTimes" resultType="java.lang.Integer">
-        select times from ts 
+        select times from ts
         where username = #{username};
     </select>
     <update id="updateTsTimes">
