@@ -18,10 +18,14 @@
 
 </head>
 <body>
+<form action="/year" method="POST">
+    <div id="sys_admin">
+        <h1>欢迎你${username}系统管理员</h1>
+    </div>
+</form>
 <!-- 实现顶部导航栏功能 -->
 <div id="nav">
     <ul class="item">
-        <li class="cur"><a href="/">首页</a></li>
         <li><a href="/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
         <li><a href="/demo1_war_exploded/QueryCanteenServlet">查询食堂</a></li>
         <li><a href="/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
@@ -29,13 +33,6 @@
     </ul>
 </div>
 
-<form action="/year" method="POST">
-    <div id="sys_admin">
-        <h1>欢迎你${username}系统管理员</h1>
-
-        <button type="submit">进入</button>
-    </div>
-</form>
 <footer>
     <p>版权所有 &copy; 校食堂管理系统</p>
 </footer>
