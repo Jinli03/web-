@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" >
     <link rel="stylesheet" href="sysStyles.css"/>
 
     <title>系统管理员</title>
@@ -14,10 +14,43 @@
 <%--    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>--%>
 <%--    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>--%>
 <%--   <meta name="viewport" content="width=device-width, initial-scale=1.0">--%>
-    <meta charset="UTF-8">
+    <style>
+        nav ul {
+            float:left;
+            margin: 0px;
+            padding: 0 0 0 0;
+            width: 920px;
+            list-style: none;
+        }
+        /* 让链接横排 */
+        nav ul li {
+            display: inline;
+        }
+        /* 字体美化等 */
+        nav ul li a {
+            float: left;
+            padding: 11px 20px;
+            font-size: 28px;
+            text-align: center;
+            text-decoration: none;
+            /* background: url(../images/templatemo_menu_divider.png)        center right no-repeat; */
+            color: #fff;
+            font-family: Tahoma, cursive;
+            outline: none;
+        }
+        /* 鼠标经过该链接，变色 */
+        nav li a:hover {
+            color:cornflowerblue;
+            background-color:white;
+            /*弧度*/
+            /* border-radius: 30px;  */
+
+        }
+    </style>
 
 </head>
-<body>
+<BODY leftMargin=0 background=backg.gif topMargin=0
+      marginheight="0" marginwidth="0">
 <!-- 实现顶部导航栏功能 -->
 <div id="nav">
     <ul class="item">
