@@ -52,7 +52,7 @@
 <BODY leftMargin=0 background=backg.gif topMargin=0
       marginheight="0" marginwidth="0">
 <!-- 实现顶部导航栏功能 -->
-<div id="nav">
+<nav>
     <ul class="item">
         <li class="cur"><a href="/">首页</a></li>
         <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
@@ -60,7 +60,7 @@
         <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
         <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryForumServlet">查询论坛信息</a></li>
     </ul>
-</div>
+</nav>
 
 <form action="/year" method="POST">
     <div id="sys_admin">
