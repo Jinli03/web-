@@ -22,10 +22,10 @@
 <div id="nav">
     <ul class="item">
         <li class="cur"><a href="/">首页</a></li>
-        <li><a href="/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
-        <li><a href="/demo1_war_exploded/QueryCanteenServlet">查询食堂</a></li>
-        <li><a href="/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
-        <li><a href="/demo1_war_exploded/QueryForumServlet">查询论坛信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
+        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCanteenServlet">查询食堂</a></li>
+        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
+        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryForumServlet">查询论坛信息</a></li>
     </ul>
 </div>
 

@@ -96,9 +96,10 @@
 }
 /* 增加背景图 */
 body {
-    background: url("https://img-blog.csdnimg.cn/img_convert/48ccc48be7ad5478ba85cba7849b6b84.png#pic_center") center; /* 首先增加背景图 */
+    /* 首先增加背景图 */
     background-size: 100% auto; /* 设置背景的大小 */
-    background-repeat: no-repeat; /* 将背景设置为不重复显示 */
+    /* 将背景设置为不重复显示 */
+    background: url("backg.gif") no-repeat center;
 }
 
 
