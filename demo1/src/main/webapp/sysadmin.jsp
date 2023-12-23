@@ -54,19 +54,16 @@
 <!-- 实现顶部导航栏功能 -->
 <nav>
     <ul class="item">
-        <li class="cur"><a href="/">首页</a></li>
-        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
-        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCanteenServlet">查询食堂</a></li>
-        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
-        <li><a href="${pageContext.request.contextPath}/demo1_war_exploded/QueryForumServlet">查询论坛信息</a></li>
+        <li><a href="/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
+        <li><a href="/demo1_war_exploded/QueryCanteenServlet">查询食堂</a></li>
+        <li><a href="/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
+        <li><a href="/demo1_war_exploded/QueryForumServlet">查询论坛信息</a></li>
     </ul>
 </nav>
 
 <form action="/year" method="POST">
-    <div id="sys_admin">
+    <div id="sys_admin">  /
         <h1>欢迎你${username}系统管理员</h1>
-
-        <button type="submit">进入</button>
     </div>
 </form>
 <footer>

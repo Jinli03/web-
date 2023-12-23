@@ -4,6 +4,31 @@
 <html>
 <head>
     <title>查询食堂管理员</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="button"] {
+            margin-bottom: 10px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+        table {
+            border-collapse: collapse;
+            width: 800px;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 <input type="button" value="新增" id="add"><br>
@@ -15,17 +40,20 @@
         <th>操作</th>
     </tr>
     <c:forEach items="${cuser}" var="item" varStatus="status">
-    <tr align="centre">
-        <td>${item.username}</td>
-        <td>${item.canteen}</td>
-        <td><a href="/demo1_war_exploded/SelectCanteenManagerByUsernameServlet?username=${item.username}">修改</a>
-            <a href="/demo1_war_exploded/DeleteCanteenManagerByUsernameServlet?username=${item.username}">删除</a></td>
-    </tr>
+        <tr align="center">
+            <td>${item.username}</td>
+            <td>${item.canteen}</td>
+            <td>
+                <a href="/demo1_war_exploded/SelectCanteenManagerByUsernameServlet?username=${item.username}">修改</a>
+                <a href="/demo1_war_exploded/DeleteCanteenManagerByUsernameServlet?username=${item.username}">删除</a>
+            </td>
+        </tr>
     </c:forEach>
-    <script>
-        document.getElementById("add").onclick = function(){
-            location.href="/demo1_war_exploded/addcanteenmanager.jsp";
-        }
-    </script>
+</table>
+<script>
+    document.getElementById("add").onclick = function(){
+        location.href="/demo1_war_exploded/addcanteenmanager.jsp";
+    }
+</script>
 </body>
 </html>
