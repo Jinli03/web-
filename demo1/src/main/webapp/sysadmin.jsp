@@ -23,6 +23,7 @@
         nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
             text-align: center;
         }
 
@@ -36,26 +37,37 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        nav ul li a:hover {
+        nav ul li a:hover, nav ul li a:focus {
             background-color: #ddd;
-            color: black;
+            color: #333;
         }
 
         #sys_admin {
             text-align: center;
-            padding: 20px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+
+        #sys_admin h1 {
+            color: #333;
+            font-size: 24px;
         }
 
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             background-color: #333;
             color: white;
             position: fixed;
             bottom: 0;
             width: 100%;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>

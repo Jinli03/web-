@@ -16,10 +16,6 @@ import java.util.List;
 public class DataService {
     SqlSessionFactory factory = SqlSessionFactoryUtils.getSqlSessionFactory();
 
-
-
-
-
     //菜品增删改
     public List<Dish> selectAllDishes() {
         SqlSession sqlSession = factory.openSession();
