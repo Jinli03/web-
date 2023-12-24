@@ -5,121 +5,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>登录页面</title>
+    <title>食堂管理系统登录</title>
     <style>
-
-        form {
-
-            text-align: center;
-            position: absolute;
-            top: 30%;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            border: 1px solid blue ;
-            width: 223px;
-            padding: 5px;
+        body, html {
+            height: 100%;
+            /* 添加背景图片 */
+            background: url('img_5.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f7f7f7;
         }
-
-        form input[type="text"],
-        form textarea,
-        form input[type="file"] {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        form button {
+        body, html {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f7f7f7;
+        }
+
+        .login-container {
+            padding: 40px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 350px;
+        }
+
+        .login-container h2 {
+            color: #333333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-input {
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 10px 15px;
             width: 100%;
-            background-color: orange;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            font-size: 16px;
         }
 
-        form button:hover {
-            background-color:royalblue;
+        .form-input:focus {
+            outline: none;
+            border-color: #777777;
+        }
+
+        .login-button {
+            padding: 10px 15px;
+            width: 100%;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #449d44;
         }
     </style>
-
-    <STYLE type=text/css>
-        TD {
-            FONT-SIZE: 12px; COLOR: #000000
-        }
-        INPUT {
-            FONT-SIZE: 12px; COLOR: #000000
-        }
-        SELECT {
-            FONT-SIZE: 12px; COLOR: #000000
-        }
-        TD.nav {
-            FILTER: DropShadow( Color#ffffff, OffX1, OffY1)
-        }
-        TD.nav A {
-            COLOR: #000000; TEXT-DECORATION: none
-        }
-        TD.nav A:hover {
-            COLOR: #000000
-        }
-        p1 {
-            FONT-SIZE: 12px
-        }
-        p2 {
-            FONT-SIZE: 12px; LINE-HEIGHT: 130%
-        }
-        p3 {
-            FONT-SIZE: 14px
-        }
-        p4 {
-            FONT-SIZE: 14px; LINE-HEIGHT: 130%
-        }
-        p5 {
-            FONT-SIZE: 12px; LINE-HEIGHT: 180%
-        }
-        p6 {
-            LINE-HEIGHT: 240%
-        }
-        p7 {
-            COLOR: #404642; LINE-HEIGHT: 150%
-        }
-        .text {
-            COLOR: #3c3c3c; LINE-HEIGHT: 180%
-        }
-        .text1 {
-            FONT-SIZE: 14px; COLOR: #3c3c3c; LINE-HEIGHT: 180%
-        }
-        A:link {
-            COLOR: #000000
-        }
-        A:visited {
-            COLOR: #000000
-        }
-        A:hover {
-            COLOR: #000000
-        }
-        .STYLE2 {color: #316AC5}
-    </STYLE>
-
 </head>
-<BODY leftMargin=0 background=backg.gif topMargin=0
-      marginheight="0" marginwidth="0">
-
-
-
-<form action="http://localhost:8080/demo1_war_exploded/LoginServlet" method="post">
-    用户名：<input type="text" name="username"> <br>
-    密码：<input type="text" name="password"> <br>
-    <input type="submit" value="登录">
-
-
-</form>
-
+<body>
+<div class="login-container">
+    <h2>食堂管理系统登录</h2>
+    <form action="http://localhost:8080/demo1_war_exploded/LoginServlet" method="post">
+        <input type="text" name="username" class="form-input" placeholder="用户名">
+        <input type="password" name="password" class="form-input" placeholder="密码">
+        <input type="submit" value="登录" class="login-button">
+    </form>
+</div>
 </body>
 </html>
+

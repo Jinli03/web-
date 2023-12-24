@@ -97,7 +97,7 @@
     <select id="selectAllDishesByConditions" resultType="entity.Dish">
         SELECT id, kind, picture, price, grade, canteen FROM dishes
         <trim prefix="WHERE" prefixOverrides="AND">
-            <if test="kind != null and kind != ''">
+            <if test="id != null and id != ''">
                 AND kind = #{kind}
             </if>
             <if test="price != 0.0">
