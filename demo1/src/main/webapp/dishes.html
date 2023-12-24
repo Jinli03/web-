@@ -11,6 +11,10 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-image: url('4.jpg'); /* 替换为你的背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
         }
 
         .buttons-container {
@@ -21,37 +25,41 @@
             margin: 10px;
             padding: 15px 20px;
             font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
+            background-color: transparent; /* 透明背景 */
+            color: #fff; /* 文字颜色 */
+            border: 2px solid #fff; /* 边框颜色设为白色 */
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease; /* 添加过渡效果 */
+            text-decoration: none; /* 去除超链接下划线 */
+            display: inline-block; /* 使超链接元素成为块级元素，以允许设置宽度和高度 */
+        }
+
+        button a {
+            color: inherit; /* 继承按钮的文字颜色 */
+            text-decoration: none; /* 去除超链接下划线 */
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #4CAF50; /* 悬停时背景颜色 */
         }
     </style>
 </head>
 <body>
 
-    <div class="buttons-container">
-        <form action=" http://localhost:8080/demo1_war_exploded/SelectAllDishesServlet" method="post">
-            <button  >查看所有菜品</button>
-        </form>
-        <br>
-        <button><a href="addDish.html">增加菜品</a></button>
-        <br>
-        <button ><a href="UpdateDish.html">更新菜品</a></button>
-        <br>
-        <button ><a href="SelectDishesByid.jsp">查看单个菜品</a></button>
-        <br>
-        <button ><a href="DeleteDish.html">删除菜品</a></button>
-
-
-    </div>
-
-
+<div class="buttons-container">
+    <form action="http://localhost:8080/demo1_war_exploded/SelectAllDishesServlet" method="post">
+        <button>查看所有菜品</button>
+    </form>
+    <br>
+    <button><a href="addDish.html">增加菜品</a></button>
+    <br>
+    <button><a href="UpdateDish.html">更新菜品</a></button>
+    <br>
+    <button><a href="SelectDishesByid.jsp">查看单个菜品</a></button>
+    <br>
+    <button><a href="DeleteDish.html">删除菜品</a></button>
+</div>
 
 <!-- 按钮对应的 JavaScript 函数可以在这里添加 -->
 <script>
@@ -77,3 +85,5 @@
 </script>
 </body>
 </html>
+
+
