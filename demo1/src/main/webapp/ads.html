@@ -3,19 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>发布公告</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('7.jpg'); /* 替换为你的背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8); /* 透明白色背景 */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ff69b4; /* 边框颜色为白色 */
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1); /* 透明白色背景 */
+            color: #3A3C43FF;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 15px 20px;
+            font-size: 16px;
+            background-color: #AF4C4C00;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a04545;
+        }
+    </style>
 </head>
 <body>
 <form id="announce" action="http://localhost:8080/demo1_war_exploded/AnnouncementServlet" method="post">
-    <label for="title">标题:</label><br>
-    <input type="text" id="title" name="title"><br>
+    <label for="title">标题:</label>
+    <input type="text" id="title" name="title">
 
-    <label for="time">时间:</label><br>
-    <input type="text" id="time" name="time"><br>
+    <label for="time">时间:</label>
+    <input type="text" id="time" name="time">
 
-    <label for="content">内容:</label><br>
-    <textarea id="content" name="content"></textarea><br>
+    <label for="content">内容:</label>
+    <textarea id="content" name="content"></textarea>
 
     <input type="submit" value="发布">
 </form>
 </body>
 </html>
+
