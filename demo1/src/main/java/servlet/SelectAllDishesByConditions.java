@@ -6,7 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.core.ReactiveAdapterRegistry;
 import select.DataService;
 
 import java.io.IOException;
@@ -29,7 +28,7 @@ public class SelectAllDishesByConditions extends HttpServlet {
 
             String canteen = req.getParameter("canteen");
 
-            Dish dish = new Dish();
+            Dish dish = new Dish("Spaghetti", 8.99);
             dish.setKind(kind);
             dish.setPrice(price);
             dish.setCanteen(canteen);

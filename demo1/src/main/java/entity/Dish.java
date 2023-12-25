@@ -8,7 +8,7 @@ public class Dish {
     private float grade;
     private String canteen;
 
-    public Dish() {
+    public Dish(String spaghetti, double v) {
     }
 
     public Dish(String id, String kind, String picture) {
@@ -131,5 +131,12 @@ public class Dish {
      */
     public void setCanteen(String canteen) {
         this.canteen = canteen;
+    }
+
+    public boolean getName() {
+        return false;
+    }
+
+    public void sold() {
     }
 }
