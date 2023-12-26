@@ -28,7 +28,7 @@ public class addDishServlet extends HttpServlet {
         price=Float.parseFloat(price1);
 
        //给dish设置属性
-        Dish dish=new Dish("Spaghetti", 8.99);
+        Dish dish=new Dish();
         dish.setPicture(imageName);
         dish.setId(dishName);
         dish.setKind(cuisine);

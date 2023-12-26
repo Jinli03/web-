@@ -28,7 +28,7 @@ public class SelectAllDishesByConditions extends HttpServlet {
 
             String canteen = req.getParameter("canteen");
 
-            Dish dish = new Dish("Spaghetti", 8.99);
+            Dish dish = new Dish();
             dish.setKind(kind);
             dish.setPrice(price);
             dish.setCanteen(canteen);

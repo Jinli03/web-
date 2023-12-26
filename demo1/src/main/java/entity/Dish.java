@@ -8,31 +8,8 @@ public class Dish {
     private float grade;
     private String canteen;
 
-    public Dish(String spaghetti, double v) {
+    public Dish() {
     }
-
-    public Dish(String id, String kind, String picture) {
-        this.id = id;
-        this.kind = kind;
-        this.picture = picture;
-    }
-
-    public Dish(String id, String kind, String picture, float price) {
-        this.id = id;
-        this.kind = kind;
-        this.picture = picture;
-        this.price = price;
-    }
-
-    public Dish(String id, String kind, String picture, float price, float grade, String canteen) {
-        this.id = id;
-        this.kind = kind;
-        this.picture = picture;
-        this.price = price;
-        this.grade = grade;
-        this.canteen = canteen;
-    }
-
     /**
      * 获取
      * @return id
@@ -79,10 +56,6 @@ public class Dish {
      */
     public void setPicture(String picture) {
         this.picture = picture;
-    }
-
-    public String toString() {
-        return "Dish{id = " + id + ", kind = " + kind + ", picture = " + picture + "}";
     }
 
     /**
@@ -133,10 +106,15 @@ public class Dish {
         this.canteen = canteen;
     }
 
-    public boolean getName() {
-        return false;
-    }
-
-    public void sold() {
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id='" + id + '\'' +
+                ", kind='" + kind + '\'' +
+                ", picture='" + picture + '\'' +
+                ", price=" + price +
+                ", grade=" + grade +
+                ", canteen='" + canteen + '\'' +
+                '}';
     }
 }
