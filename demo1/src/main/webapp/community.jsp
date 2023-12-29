@@ -138,7 +138,7 @@
 <header>
     <nav>
         <ul>
-            <li><a href="/demo1_war_exploded/LoadTeaStuAdminPageServlet">师生专属首页</a></li>
+            <li><a href="/LoadTeaStuAdminPageServlet">师生专属首页</a></li>
 
         </ul>
     </nav>
@@ -147,7 +147,7 @@
 <main>
     <section id="post-search">
         <h2>搜索帖子</h2>
-        <form action="/demo1_war_exploded/SearchPostServlet" method="get">
+        <form action="/SearchPostServlet" method="get">
             <input type="text" name="searchQuery" placeholder="按标题或用户名搜索">
             <button type="submit">搜索</button>
         </form>
@@ -155,7 +155,7 @@
 
     <section id="create-post">
         <h2>发表新帖</h2>
-        <form action="/demo1_war_exploded/CreatePostServlet" method="post" enctype="multipart/form-data">
+        <form action="/CreatePostServlet" method="post" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="标题" required>
             <textarea name="content" placeholder="内容" required></textarea>
             <input type="file" name="image" accept="image/*"> <!-- 允许用户选择图片文件 -->
@@ -183,7 +183,7 @@
                 <p>发布时间: <fmt:formatDate value="${post.datePosted}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
                 <p>点赞数: ${post.likes}</p>
                 <!-- 点赞表单 -->
-                <form id="likeForm-${post.id}" action="/demo1_war_exploded/LikePostServlet" method="post" style="display: none;">
+                <form id="likeForm-${post.id}" action="/LikePostServlet" method="post" style="display: none;">
                     <input type="hidden" name="postId" value="${post.id}">
                 </form>
                 <button class="like-button" onclick="document.getElementById('likeForm-${post.id}').submit();"></button>
@@ -201,7 +201,7 @@
                     </c:forEach>
 
                     <!-- 添加新评论的表单 -->
-                    <form action="/demo1_war_exploded/AddPostCommentServlet" method="post">
+                    <form action="/AddPostCommentServlet" method="post">
                         <input type="hidden" name="postId" value="${post.id}">
                         <textarea name="content" required placeholder="Add a comment..."></textarea>
                         <button type="submit">提交评论</button>

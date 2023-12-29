@@ -43,7 +43,7 @@
 <body>
 <div style="text-align: center; margin-top: 50px;">
   <h2>搜索栏</h2>
-  <form action="http://localhost:8080/demo1_war_exploded/SelectSingleDishServlet" method="post">
+  <form action="/SelectSingleDishServlet" method="post">
     <input type="text" id="searchTerm" name="search" placeholder="输入关键词">
     <button onclick="submitForm()">搜索</button>
   </form>

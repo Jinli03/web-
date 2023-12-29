@@ -36,7 +36,7 @@
 </head>
 <body>
 <h3>添加食堂管理员</h3>
-<form action="/demo1_war_exploded/AddCanteenManagerServlet" method="post">
+<form action="/AddCanteenManagerServlet" method="post">
     用户名：<input name="username"><br>
     密码：<input name="password"><br>
     所属食堂：<input name="canteen"><br>

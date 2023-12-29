@@ -34,7 +34,7 @@
     </style>
 </head>
 <body>
-<form action="/demo1_war_exploded/UpdateCanteenManagerServlet" method="post">
+<form action="/UpdateCanteenManagerServlet" method="post">
     <input type="hidden" name="id" value="${cuser.username}">
     用户名：<input name="username" value="${cuser.username}"><br>
     密码：<input name="password" value="${cuser.password}"><br>

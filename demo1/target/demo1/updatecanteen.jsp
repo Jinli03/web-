@@ -34,7 +34,7 @@
     </style>
 </head>
 <body>
-<form action="/demo1_war_exploded/UpdateCanteenServlet" method="post">
+<form action="/UpdateCanteenServlet" method="post">
 
     <input type="hidden" name="id" value="${canteen.name}">
     食堂名称：<input name="name" value="${canteen.name}"><br>

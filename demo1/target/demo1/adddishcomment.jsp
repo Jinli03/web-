@@ -48,7 +48,7 @@
     </style>
 </head>
 <body>
-<form action="/demo1_war_exploded/AddDishCommentByIdServlet" method="post">
+<form action="/AddDishCommentByIdServlet" method="post">
     <input type="hidden" name="canteen" value="${dish.canteen}">
     <input type="hidden" name="dish" value="${dish.id}">
 

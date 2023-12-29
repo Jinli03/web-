@@ -80,7 +80,7 @@
 <body>
 <div class="login-container">
     <h2>食堂管理系统登录</h2>
-    <form action="http://localhost:8080/demo1_war_exploded/LoginServlet" method="post">
+    <form action="/LoginServlet" method="post">
         <input type="text" name="username" class="form-input" placeholder="用户名">
         <input type="password" name="password" class="form-input" placeholder="密码">
         <input type="submit" value="登录" class="login-button">

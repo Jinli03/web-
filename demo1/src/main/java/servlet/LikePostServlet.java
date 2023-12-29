@@ -20,6 +20,6 @@ public class LikePostServlet extends HttpServlet {
         PostDao postDao = new PostDao();
         postDao.increaseLike(postId);
         // 重定向回帖子页面或执行其他操作
-        response.sendRedirect( "/demo1_war_exploded/GetAllPostsServlet");
+        response.sendRedirect( "/GetAllPostsServlet");
     }
 }

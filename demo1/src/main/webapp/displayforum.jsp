@@ -67,8 +67,8 @@
                     <td>${item.rmessage}</td>
                     <td>${item.rposttime}</td>
                     <td>
-                        <a href="/demo1_war_exploded/SelectForumByIdServlet?id=${item.id}">修改</a>
-                        <a href="/demo1_war_exploded/DeleteForumByIdServlet?id=${item.id}">删除</a>
+                        <a href="/SelectForumByIdServlet?id=${item.id}">修改</a>
+                        <a href="/DeleteForumByIdServlet?id=${item.id}">删除</a>
                     </td>
                 </tr>
             </c:if>

@@ -44,15 +44,15 @@
             <td>${item.username}</td>
             <td>${item.canteen}</td>
             <td>
-                <a href="/demo1_war_exploded/SelectCanteenManagerByUsernameServlet?username=${item.username}">修改</a>
-                <a href="/demo1_war_exploded/DeleteCanteenManagerByUsernameServlet?username=${item.username}">删除</a>
+                <a href="/SelectCanteenManagerByUsernameServlet?username=${item.username}">修改</a>
+                <a href="/DeleteCanteenManagerByUsernameServlet?username=${item.username}">删除</a>
             </td>
         </tr>
     </c:forEach>
 </table>
 <script>
     document.getElementById("add").onclick = function(){
-        location.href="/demo1_war_exploded/addcanteenmanager.jsp";
+        location.href="/addcanteenmanager.jsp";
     }
 </script>
 </body>

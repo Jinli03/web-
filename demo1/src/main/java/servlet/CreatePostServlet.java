@@ -51,6 +51,6 @@ public class CreatePostServlet extends HttpServlet {
         // 调用Service层处理业务
         postService.insertPost(post);
         // 重定向或转发
-        response.sendRedirect("/demo1_war_exploded/GetAllPostsServlet");
+        response.sendRedirect("/GetAllPostsServlet");
     }
 }

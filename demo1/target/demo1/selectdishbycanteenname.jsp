@@ -56,9 +56,9 @@
             <td>${item.grade}</td>
             <td>${item.picture}</td>
             <td>
-                <a href="/demo1_war_exploded/SelectDishByIdServlet?id=${item.id}">评价</a>
-                <a href="/demo1_war_exploded/SelectDishCommentByIdServlet?id=${item.id}">查看评价信息</a>
-                <a href="/demo1_war_exploded/ComplaintFormServlet?id=${item.id}&canteen=${item.canteen}&dish=${item.id}">提交投诉</a>
+                <a href="/SelectDishByIdServlet?id=${item.id}">评价</a>
+                <a href="/SelectDishCommentByIdServlet?id=${item.id}">查看评价信息</a>
+                <a href="/ComplaintFormServlet?id=${item.id}&canteen=${item.canteen}&dish=${item.id}">提交投诉</a>
             </td>
         </tr>
     </c:forEach>

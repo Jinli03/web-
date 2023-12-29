@@ -56,7 +56,7 @@
             <td>${item.name}</td>
             <td>${item.time}</td>
             <td>${item.position}</td>
-            <td><a href="/demo1_war_exploded/SelectDishesByCanteenNameServlet?name=${item.name}">查看食堂菜品</a></td>
+            <td><a href="/SelectDishesByCanteenNameServlet?name=${item.name}">查看食堂菜品</a></td>
         </tr>
     </c:forEach>
 </table>

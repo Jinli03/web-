@@ -74,7 +74,7 @@
     </style>
 </head>
 <body>
-<form action="/demo1_war_exploded/SubmitComplaintServlet" method="post">
+<form action="/SubmitComplaintServlet" method="post">
     <h1 style="text-align: center">提交投诉</h1>
     <input type="text" name="title" placeholder="投诉标题" required>
     <textarea name="details" placeholder="详细描述" required></textarea>

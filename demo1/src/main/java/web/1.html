@@ -7,7 +7,7 @@
 <body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    axios.post("http://localhost:8080/demo1_war_exploded/LoginServlet","username=Jinli03").then(function(resp){
+    axios.post("/LoginServlet","username=Jinli03").then(function(resp){
         alert(resp.data);
     })
 

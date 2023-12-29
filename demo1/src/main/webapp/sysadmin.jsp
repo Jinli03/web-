@@ -74,10 +74,10 @@
 <body>
 <nav>
     <ul class="item">
-        <li><a href="/demo1_war_exploded/QueryCanteenManagerServlet">查询食堂管理员</a></li>
-        <li><a href="/demo1_war_exploded/QueryCanteenServlet">查询食堂</a></li>
-        <li><a href="/demo1_war_exploded/QueryCommentServlet">查询评价信息</a></li>
-        <li><a href="/demo1_war_exploded/QueryForumServlet">查询论坛信息</a></li>
+        <li><a href="/QueryCanteenManagerServlet">查询食堂管理员</a></li>
+        <li><a href="/QueryCanteenServlet">查询食堂</a></li>
+        <li><a href="/QueryCommentServlet">查询评价信息</a></li>
+        <li><a href="/QueryForumServlet">查询论坛信息</a></li>
     </ul>
 </nav>
 

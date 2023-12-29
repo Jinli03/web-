@@ -64,8 +64,8 @@
             <td>${item.rperson}</td>
             <td>${item.rmessage}</td>
             <td>
-                <a href="/demo1_war_exploded/SelectCommentByIdServlet?id=${item.id}">修改</a>
-                <a href="/demo1_war_exploded/DeleteCommentByIdServlet?id=${item.id}">删除</a>
+                <a href="/SelectCommentByIdServlet?id=${item.id}">修改</a>
+                <a href="/DeleteCommentByIdServlet?id=${item.id}">删除</a>
             </td>
         </tr>
     </c:forEach>

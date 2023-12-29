@@ -52,11 +52,11 @@
     <ul>
         <li><a href="cafeteria-info-form.html#info">食堂信息维护</a></li>
         <li><a href="dishes.html">菜品维护</a></li>
-        <li><a href="http://localhost:8080/demo1_war_exploded/JudgeServlet">食堂评价处理</a></li>
+        <li><a href="/JudgeServlet">食堂评价处理</a></li>
         <li><a href="ads.html#announce">活动公告</a></li>
-        <li><a href="http://localhost:8080/demo1_war_exploded/DisplayVoteServlet">投票查询</a></li>
-        <li><a href="http://localhost:8080/demo1_war_exploded/RecomplaintServlet">投诉信息处理</a></li>
-        <li><a href="http://localhost:8080/demo1_war_exploded/RecommendServlet">最新推荐菜品</a></li>
+        <li><a href="/DisplayVoteServlet">投票查询</a></li>
+        <li><a href="/RecomplaintServlet">投诉信息处理</a></li>
+        <li><a href="/RecommendServlet">最新推荐菜品</a></li>
     </ul>
 </nav>
 <section id="info">

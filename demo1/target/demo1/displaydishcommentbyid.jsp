@@ -64,7 +64,7 @@
     </c:forEach>
 </table>
 <div class="form-button">
-    <form action="/demo1_war_exploded/SelectAllDishesByServlet" method="post">
+    <form action="/SelectAllDishesByServlet" method="post">
         <input type="submit" value="返回">
     </form>
 </div>

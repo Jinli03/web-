@@ -43,14 +43,14 @@
             <td>${item.time}</td>
             <td>${item.position}</td>
             <td>
-                <a href="/demo1_war_exploded/SelectCanteenByNameServlet?name=${item.name}">修改</a>
-                <a href="/demo1_war_exploded/DeleteCanteenByNameServlet?name=${item.name}">删除</a>
+                <a href="/SelectCanteenByNameServlet?name=${item.name}">修改</a>
+                <a href="/DeleteCanteenByNameServlet?name=${item.name}">删除</a>
             </td>
         </tr>
     </c:forEach>
     <script>
         document.getElementById("add").onclick = function(){
-            location.href="/demo1_war_exploded/addcanteen.jsp";
+            location.href="/addcanteen.jsp";
         }
     </script>
 </table>
