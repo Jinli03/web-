@@ -49,8 +49,6 @@ public class VoteServlet extends HttpServlet {
         RequestDispatcher dispatcher2 = request.getRequestDispatcher("VoteResult.jsp");
         dispatcher2.forward(request, response); // 转发请求到 JSP 页面
 
-
-
     }
 }
 

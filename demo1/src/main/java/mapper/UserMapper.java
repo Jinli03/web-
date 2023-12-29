@@ -13,9 +13,6 @@ public interface UserMapper {
     //投诉消息处理
     List<Complaint> selectAllComplaints();
     void addReply(Complaint complaint);
-
-
-
     //菜品增删改
     List<Dish> selectAllDishes();
     void addDishes(Dish dish);
@@ -54,4 +51,5 @@ public interface UserMapper {
     List<Tsuser> selectAllTsuserAndTimes();
     float queryDishAvarageGradeById(String dish);
     void updateDishAverageGradeById(@Param("id") String id, @Param("grade") int grade);
+    List<Vote> selectAllVotes();
 }

@@ -144,5 +144,8 @@
         set grade = #{grade}
         where id = #{id};
     </update>
+    <select id="selectAllVotes" resultType="entity.Vote">
+        select * from votes;
+    </select>
 
 </mapper>

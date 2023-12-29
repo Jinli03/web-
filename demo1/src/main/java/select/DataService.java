@@ -236,5 +236,12 @@ public class DataService {
         sqlSession.commit();
         sqlSession.close();
     }
+    public List<Vote> selectAllVotes(){
+        SqlSession sqlSession = factory.openSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Vote> vote = mapper.selectAllVotes();
+        sqlSession.close();
+        return vote;
+    }
 }
 

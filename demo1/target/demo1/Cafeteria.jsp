@@ -54,7 +54,7 @@
         <li><a href="dishes.html">菜品维护</a></li>
         <li><a href="#reviews">食堂评价处理</a></li>
         <li><a href="ads.html#announce">活动公告</a></li>
-        <li><a href="VoteResult.jsp">投票查询</a></li>
+        <li><a href="http://localhost:8080/demo1_war_exploded/DisplayVoteServlet">投票查询</a></li>
         <li><a href="http://localhost:8080/demo1_war_exploded/RecomplaintServlet">投诉信息处理</a></li>
         <li><a href="#recommendations">最新推荐菜品</a></li>
     </ul>
